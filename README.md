@@ -32,10 +32,10 @@ unter dem Ordner **"resources"** zu finden.
 
 ## Inhaltsverzeichnis
 
-1. Anwendung Noten (Z.1-Z.22)
-2. Inhaltsverzeichnis (Z.26-Z.31)
-3. Installation (Z.35-Z.123)
-4. Technologies (Z.128-Z.144)
+1. Anwendung Noten 
+2. Inhaltsverzeichnis 
+3. Installation 
+4. Technologies 
 
 ****
 
@@ -57,12 +57,8 @@ Folgende Informationen sind notwendig für die Installation:
 
 Verwendeter Port : 3306
 
-username : root
-
-passwort : root
-
-Müssen diese Informationen aus Gründen angepasst werden, so ist es erforderlich die Informationen in der Klasse 
-de.simonjpg.noten.Backend.DB.Database.java mit den bisherigen Informationen zu ersetzen.
+Es ist erforderlich die Informationen in der Klasse 
+de.simonjpg.noten.Backend.DB.Database.java mit den in der Installation angegebenen Informationen zu ersetzen.
 
 ### Schritt 3:
 
@@ -96,8 +92,11 @@ Bei Erfolg sind die Vorbereitungen abgeschlossen und die Anwendung kann gestarte
 
 Wenn der MySQL Server bei Systemstart nicht gestartet wird und eine Verbindung demnach nicht möglich ist, kann dieser manuell gestartet werden.
 Hierbei wird die Anwendung `Services` über die Ausführen-Funktion gestartet.
+
 In dem Fenster wird der Prozess `MySQL80` gesucht und angeklickt. 
+
 Oben links im Fenster erscheint eine blau hinterlegte Schrift `Den Dienst starten`.
+
 Nach dem Start kann die Anwendung wieder geschlossen werden und eine Verbindung zur Datenbank ist nun möglich.
 
 ****
@@ -112,8 +111,8 @@ Zunächst werden die Paketquellen aktualisiert und der MySQL Server aus den Pake
 
 `sudo apt install mysql-server -y`
 
-Nach erfolgreicher Installation muss in der Klasse de.simonjpg.noten.Backend.DB.Database.java das Password durch das
-aktuelle root password ersetzt werden.
+Nach erfolgreicher Installation müssen in der Klasse de.simonjpg.noten.Backend.DB.Database.java das Passwort und der
+Benutzername ersetzt werden.
 
 ### Schritt 2:
 
