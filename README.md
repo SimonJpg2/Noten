@@ -8,8 +8,6 @@ Um die Anwendung zu verwenden, muss eine MySQL Datenbank auf dem System installi
 
 Eine Installationsanleitung einer MySQL Datenbank befindet sich weiter unten.
 
-Falls die Datenbank manuell gestartet werden muss, folgt dies über folgenden Command: `services.msc`
-
 Um die Anwendung zu starten, wird die main Methode in der Klasse de.simonjpg.noten.NotenApp.java ausgeführt.
 
 Anschließend öffnet sich ein Fenster mit zwei Tabellen. 
