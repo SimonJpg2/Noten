@@ -38,6 +38,10 @@ public class BackendController implements DatabaseController {
         connection = new Database().init();
     }
 
+    public BackendController(String url) {
+        connection = new Database().init(url);
+    }
+
     /**
      * Method select.
      *
