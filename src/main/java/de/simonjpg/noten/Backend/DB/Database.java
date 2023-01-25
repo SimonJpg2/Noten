@@ -14,20 +14,38 @@ import java.sql.SQLException;
  */
 
 public class Database {
-    private final String url = "jdbc:mysql://localhost:3306/noten";
+    private String url = "jdbc:mysql://localhost:3306/noten";
     private Connection connection;
 
     public Connection init() {
         System.out.println("Connecting to Database...\n");
 
         try {
-            connection = DriverManager.getConnection(url, "root", "SET YOUR PASSWORD HERE");
+            connection = DriverManager.getConnection(url, "root", "your password");
             System.out.println("Connection established.\n");
             return connection;
         } catch (SQLException e) {
             System.err.printf("Connection failed:%n %s", e.getMessage());
             return null;
         }
+    }
+
+    /**
+     * method init.
+     *
+     * <p>
+     *     This method should only be used for the testcase.
+     * </p>
+     *
+     * @param url the url to the database.
+     * @return an {@link java.sql.Connection} instance.
+     */
+    public Connection init(String url) {
+        if (url == null) {
+            return null;
+        }
+        this.url = url;
+        return init();
     }
 
     @SuppressWarnings("unused")

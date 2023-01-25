@@ -38,6 +38,15 @@ public class BackendController implements DatabaseController {
         connection = new Database().init();
     }
 
+    /**
+     * Constructor BackendController.
+     *
+     * <p>
+     *     This constructor should only be used for testing purposes.
+     * </p>
+     * @param url a link to the database.
+     */
+
     public BackendController(String url) {
         connection = new Database().init(url);
     }
