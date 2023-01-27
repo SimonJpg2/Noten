@@ -1,7 +1,8 @@
-package de.simonjpg.noten.Frontend;
+package de.simonjpg.noten.Frontend.windows;
 
 
 import de.simonjpg.noten.Backend.Fach;
+import de.simonjpg.noten.Frontend.FrontendController;
 import de.simonjpg.noten.Frontend.windows.FirstFrame;
 import de.simonjpg.noten.Frontend.windows.SecondFrame;
 

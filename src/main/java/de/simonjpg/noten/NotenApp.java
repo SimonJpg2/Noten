@@ -2,7 +2,7 @@ package de.simonjpg.noten;
 
 import de.simonjpg.noten.Backend.BackendController;
 import de.simonjpg.noten.Frontend.FrontendController;
-import de.simonjpg.noten.Frontend.NewJFrame;
+import de.simonjpg.noten.Frontend.windows.NewJFrame;
 
 /**
  * Class NotenApp.
