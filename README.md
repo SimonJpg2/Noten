@@ -108,6 +108,9 @@ Für den Login werden folgende Queries ausgeführt:
 
 `CREATE TABLE users (id int(3) AUTO_INCREMENT, username varchar(255), email varchar(255), password varchar(255), PRIMARY KEY (id));`
 
+Um die Verifizierungsmail verwenden zu können, müssen die E-Mail-adresse und das Passwort in der Klasse
+de.simonjpg.noten.Backend.Controller.MailController.java angepasst werden.
+
 Bei Erfolg sind die Vorbereitungen abgeschlossen und die Anwendung kann gestartet werden.
 
 ### Bekannte Fehler und dessen Behebung:
@@ -121,6 +124,9 @@ Oben links im Fenster erscheint eine blau hinterlegte Schrift `Den Dienst starte
 
 Nach dem Start kann die Anwendung wieder geschlossen werden und eine Verbindung zur Datenbank ist nun möglich.
 
+Sollten Fehler mit dem Senden der Verifizierungsmail unter Verwendung von gmail auftreten hilft folgender Artikel weiter:
+
+[https://support.google.com/accounts/answer/185833](https://support.google.com/accounts/answer/185833)
 ****
 
 ## Leitfaden für die Installation unter Linux:
@@ -205,3 +211,5 @@ Compiler source & target : 17
 [https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api) : version 5.8.2
 
 [https://search.maven.org/artifact/javax.mail/javax.mail-api/1.6.2/jar](https://search.maven.org/artifact/javax.mail/javax.mail-api/1.6.2/jar) : version 1.6.2
+
+[https://mvnrepository.com/artifact/com.sun.mail/javax.mail/1.6.0](https://mvnrepository.com/artifact/com.sun.mail/javax.mail/1.6.0) : version 1.6.0
