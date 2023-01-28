@@ -23,7 +23,7 @@ class LoginControllerImplementationTest {
         List<User> expected = new ArrayList<>();
         expected.add(new User(
                 "Max Mustermann",
-                sha256.hash("Muser@Email.de"),
+                "Muster@Email.de",
                 sha256.hash("SuperSecretPassword")
         ));
 
@@ -41,11 +41,11 @@ class LoginControllerImplementationTest {
         // given
         User expected = new User(
                 "Max Mustermann",
-                sha256.hash("Muser@Email.de"),
+                "Muster@Email.de",
                 sha256.hash("SuperSecretPassword"));
 
         // when
-        User actual = loginController.selectById(2);
+        User actual = loginController.selectById(1);
 
         // then
         assertEquals(expected.getUsername(), actual.getUsername());
@@ -56,7 +56,7 @@ class LoginControllerImplementationTest {
     @Test
     void create() {
         // given
-        User actual = new User("Max Mustermann", "Muser@Email.de", "SuperSecretPassword");
+        User actual = new User("Max Mustermann", "Muster@Email.de", "SuperSecretPassword");
         User user1 = new User(
                 "Max Mustermann",
                 "'OR '1'='1",
@@ -107,6 +107,6 @@ class LoginControllerImplementationTest {
 
     @Test
     void deleteById() {
-        assertTrue(loginController.deleteById(3));
+        assertTrue(loginController.deleteById(2));
     }
 }
