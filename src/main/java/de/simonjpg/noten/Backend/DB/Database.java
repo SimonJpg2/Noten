@@ -34,7 +34,7 @@ public class Database {
      * method init.
      *
      * <p>
-     *     This method should only be used for the testcase.
+     *     This method is used if another database than noten should be accessed.
      * </p>
      *
      * @param url the url to the database.
