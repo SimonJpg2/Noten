@@ -165,7 +165,7 @@ public class LoginControllerImplementation implements LoginController {
         try {
             preparedStatement = connection.prepareStatement("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
             preparedStatement.setString(1, user.getUsername());
-            preparedStatement.setString(2, sha256.hash(user.getEmail()));
+            preparedStatement.setString(2, user.getEmail());
             preparedStatement.setString(3, sha256.hash(user.getPassword()));
             boolean success = preparedStatement.executeUpdate() > 0;
             preparedStatement.close();
@@ -201,7 +201,7 @@ public class LoginControllerImplementation implements LoginController {
         try {
             preparedStatement = connection.prepareStatement("UPDATE users SET username = ?, email = ?, password = ? WHERE id = ?");
             preparedStatement.setString(1, user.getUsername());
-            preparedStatement.setString(2, sha256.hash(user.getEmail()));
+            preparedStatement.setString(2, user.getEmail());
             preparedStatement.setString(3, sha256.hash(user.getPassword()));
             preparedStatement.setInt(4, id);
             boolean success = preparedStatement.executeUpdate() > 0;
