@@ -77,6 +77,7 @@ public class LoginFrame extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(41, 129, 186));
         jButton3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jButton3.setText("Send Email");
+        jButton3.addActionListener(this::sendVerificationMail);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -250,5 +251,13 @@ public class LoginFrame extends javax.swing.JFrame {
             }
         }
         username.setText("Login fehlgeschlagen.");
+    }
+
+    private void sendVerificationMail(ActionEvent e) {
+        if (e.getSource() != jButton3) {
+            return;
+        }
+
+        new VerificationFrame(frontendController).setVisible(true);
     }
 }
