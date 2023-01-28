@@ -1,7 +1,7 @@
 package de.simonjpg.noten.Frontend;
 
-import de.simonjpg.noten.Backend.BackendController;
-import de.simonjpg.noten.Backend.LoginControllerImplementation;
+import de.simonjpg.noten.Backend.Controller.BackendController;
+import de.simonjpg.noten.Backend.Controller.LoginControllerImplementation;
 
 /**
  * Class FrontendController.

@@ -1,4 +1,4 @@
-package de.simonjpg.noten.Backend;
+package de.simonjpg.noten.Backend.Repository;
 
 /**
  * Class User.

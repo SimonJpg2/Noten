@@ -1,9 +1,8 @@
 package de.simonjpg.noten.Backend;
 
+import de.simonjpg.noten.Backend.Controller.BackendController;
+import de.simonjpg.noten.Backend.Repository.Fach;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 

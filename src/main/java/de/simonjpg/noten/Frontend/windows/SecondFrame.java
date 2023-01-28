@@ -1,11 +1,9 @@
 package de.simonjpg.noten.Frontend.windows;
 
-import de.simonjpg.noten.Backend.Fach;
+import de.simonjpg.noten.Backend.Repository.Fach;
 import de.simonjpg.noten.Frontend.FrontendController;
 
 import javax.swing.*;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.List;
@@ -15,7 +13,6 @@ import static java.lang.Short.*;
 import static javax.swing.GroupLayout.*;
 import static javax.swing.GroupLayout.Alignment.*;
 import static javax.swing.LayoutStyle.ComponentPlacement.*;
-import static javax.swing.WindowConstants.*;
 
 /**
  * Class SecondFrame.

@@ -1,7 +1,8 @@
-package de.simonjpg.noten.Backend;
+package de.simonjpg.noten.Backend.Controller;
 
 import de.simonjpg.noten.Backend.DB.Database;
 import de.simonjpg.noten.Backend.DB.DatabaseController;
+import de.simonjpg.noten.Backend.Repository.Fach;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -96,7 +97,7 @@ public class BackendController implements DatabaseController {
      * </p>
      *
      * @param id an {@link java.lang.Integer} the id.
-     * @return a {@link de.simonjpg.noten.Backend.Fach} instance.
+     * @return a {@link Fach} instance.
      */
 
     @Override
@@ -132,7 +133,7 @@ public class BackendController implements DatabaseController {
      *     Creates new subject in Database.
      * </p>
      *
-     * @param fach the {@link de.simonjpg.noten.Backend.Fach} to be added.
+     * @param fach the {@link Fach} to be added.
      * @return a {@link java.lang.Boolean} if succeeded.
      */
 
@@ -173,7 +174,7 @@ public class BackendController implements DatabaseController {
      *     Updates existing subject entry by id.
      * </p>
      * @param id the {@link java.lang.Integer} id.
-     * @param fach the updatet {@link de.simonjpg.noten.Backend.Fach}.
+     * @param fach the updatet {@link Fach}.
      * @return a {@link java.lang.Boolean} if succeeded.
      */
 

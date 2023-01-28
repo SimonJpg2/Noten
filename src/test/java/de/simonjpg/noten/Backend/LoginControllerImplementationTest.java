@@ -1,5 +1,7 @@
 package de.simonjpg.noten.Backend;
 
+import de.simonjpg.noten.Backend.Controller.LoginControllerImplementation;
+import de.simonjpg.noten.Backend.Repository.User;
 import de.simonjpg.noten.Backend.Security.SHA256;
 import org.junit.jupiter.api.Test;
 

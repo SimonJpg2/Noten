@@ -1,6 +1,6 @@
 package de.simonjpg.noten.Backend.DB;
 
-import de.simonjpg.noten.Backend.Fach;
+import de.simonjpg.noten.Backend.Repository.Fach;
 
 import java.util.List;
 

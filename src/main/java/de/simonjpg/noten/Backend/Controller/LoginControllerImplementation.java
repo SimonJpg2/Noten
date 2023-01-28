@@ -1,7 +1,8 @@
-package de.simonjpg.noten.Backend;
+package de.simonjpg.noten.Backend.Controller;
 
 import de.simonjpg.noten.Backend.DB.Database;
 import de.simonjpg.noten.Backend.DB.LoginController;
+import de.simonjpg.noten.Backend.Repository.User;
 import de.simonjpg.noten.Backend.Security.SHA256;
 
 import java.sql.Connection;
@@ -114,7 +115,7 @@ public class LoginControllerImplementation implements LoginController {
      * </p>
      *
      * @param id an {@link java.lang.Integer} the id.
-     * @return a {@link de.simonjpg.noten.Backend.User} instance.
+     * @return a {@link User} instance.
      */
 
     @Override
@@ -149,7 +150,7 @@ public class LoginControllerImplementation implements LoginController {
      *     Hashes the email and password before it is stored in the database.
      * </p>
      *
-     * @param user the {@link de.simonjpg.noten.Backend.User} to be added.
+     * @param user the {@link User} to be added.
      * @return a {@link java.lang.Boolean} if succeeded.
      */
 
@@ -185,7 +186,7 @@ public class LoginControllerImplementation implements LoginController {
      *     Hashes the email and password before it is stored in the database.
      * </p>
      * @param id the {@link java.lang.Integer} id.
-     * @param user the updatet {@link de.simonjpg.noten.Backend.User}.
+     * @param user the updatet {@link User}.
      * @return a {@link java.lang.Boolean} if succeeded.
      */
 

@@ -1,7 +1,7 @@
 package de.simonjpg.noten;
 
-import de.simonjpg.noten.Backend.BackendController;
-import de.simonjpg.noten.Backend.LoginControllerImplementation;
+import de.simonjpg.noten.Backend.Controller.BackendController;
+import de.simonjpg.noten.Backend.Controller.LoginControllerImplementation;
 import de.simonjpg.noten.Frontend.FrontendController;
 import de.simonjpg.noten.Frontend.windows.LoginFrame;
 import de.simonjpg.noten.Frontend.windows.RegisterFrame;

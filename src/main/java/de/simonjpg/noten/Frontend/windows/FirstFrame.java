@@ -1,10 +1,9 @@
 package de.simonjpg.noten.Frontend.windows;
 
-import de.simonjpg.noten.Backend.Fach;
+import de.simonjpg.noten.Backend.Repository.Fach;
 import de.simonjpg.noten.Frontend.FrontendController;
 
 import javax.swing.*;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionEvent;
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package de.simonjpg.noten.Frontend.windows;
 
-import de.simonjpg.noten.Backend.User;
+import de.simonjpg.noten.Backend.Repository.User;
 import de.simonjpg.noten.Frontend.FrontendController;
 
 import java.awt.event.ActionEvent;
