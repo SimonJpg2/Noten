@@ -7,6 +7,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static de.simonjpg.noten.Backend.Security.BadCharacters.*;
+
 /**
  * Class BackendController.
  *
@@ -22,7 +24,6 @@ public class BackendController implements DatabaseController {
     private final Connection connection;
     private PreparedStatement preparedStatement;
     private ResultSet resultSet;
-    private final String[] forbiddenChars = {"'", "\"", ")", "(", ";", "-"};
 
     /**
      * Constructor BackendController.
@@ -137,7 +138,7 @@ public class BackendController implements DatabaseController {
 
     @Override
     public boolean create(Fach fach, String table) {
-        for (String str : forbiddenChars) {
+        for (String str : FORBIDDEN) {
             if (fach.getName().contains(str)) {
                 System.err.println("Forbidden character, could lead to SQL Injection\n");
                 return false;
@@ -178,7 +179,7 @@ public class BackendController implements DatabaseController {
 
     @Override
     public boolean updateById(int id, Fach fach, String table) {
-        for (String str : forbiddenChars) {
+        for (String str : FORBIDDEN) {
             if (fach.getName().contains(str)) {
                 System.err.println("Forbidden character, could lead to SQL Injection\n");
                 return false;
