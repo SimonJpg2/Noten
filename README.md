@@ -84,6 +84,28 @@ Nun werden die Tabellen erzeugt. Folgende Befehle sind auszuführen:
 
 `CREATE TABLE q4 (id int(3) AUTO_INCREMENT, fach varchar(255), note int(3), PRIMARY KEY (id));`
 
+Für die JUnit Tests werden folgende Queries ausgeführt:
+
+`CREATE DATABASE test;`
+
+`USE test;`
+
+`CREATE TABLE q1 (id int(3) AUTO_INCREMENT, fach varchar(255), note int(3), PRIMARY KEY (id));`
+
+`CREATE TABLE q2 (id int(3) AUTO_INCREMENT, fach varchar(255), note int(3), PRIMARY KEY (id));`
+
+`CREATE TABLE q3 (id int(3) AUTO_INCREMENT, fach varchar(255), note int(3), PRIMARY KEY (id));`
+
+`CREATE TABLE q4 (id int(3) AUTO_INCREMENT, fach varchar(255), note int(3), PRIMARY KEY (id));`
+
+Für den Login werden folgende Queries ausgeführt:
+
+`CREATE DATABASE login;`
+
+`USE login;`
+
+`CREATE TABLE users (id int(3) AUTO_INCREMENT, username varchar(255), email varchar(255), password varchar(255), PRIMARY KEY (id));`
+
 Bei Erfolg sind die Vorbereitungen abgeschlossen und die Anwendung kann gestartet werden.
 
 ### Bekannte Fehler und dessen Behebung:
