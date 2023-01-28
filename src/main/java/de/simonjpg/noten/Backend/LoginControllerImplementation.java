@@ -123,7 +123,7 @@ public class LoginControllerImplementation implements LoginController {
             preparedStatement = connection.prepareStatement("SELECT * FROM users WHERE id = ?");
             preparedStatement.setInt(1, id);
             resultSet = preparedStatement.executeQuery();
-
+            resultSet.next();
             User user = new User(
                     resultSet.getInt("id"),
                     resultSet.getString("username"),
