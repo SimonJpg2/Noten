@@ -1,5 +1,12 @@
 package de.simonjpg.noten.Frontend.windows;
 
+import de.simonjpg.noten.Backend.User;
+import de.simonjpg.noten.Frontend.FrontendController;
+
+import java.awt.event.ActionEvent;
+import java.util.Arrays;
+import java.util.List;
+
 public class RegisterFrame extends javax.swing.JFrame {
     private final javax.swing.JButton jButton1;
     private final javax.swing.JButton jButton2;
@@ -19,8 +26,11 @@ public class RegisterFrame extends javax.swing.JFrame {
     private final javax.swing.JPasswordField jPasswordField3;
     private final javax.swing.JTextField jTextField1;
     private final javax.swing.JTextField username;
+    private final FrontendController frontendController;
+    private LoginFrame loginFrame;
 
-    public RegisterFrame() {
+    public RegisterFrame(FrontendController frontendController) {
+        this.frontendController = frontendController;
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -42,7 +52,7 @@ public class RegisterFrame extends javax.swing.JFrame {
         initComponents();
     }
 
-    // TODO add frame logic
+    // TODO add password strength logic
     // TODO add email sender and receiver
 
     private void initComponents() {
@@ -66,6 +76,7 @@ public class RegisterFrame extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jButton1.setText("Login");
         jButton1.setToolTipText("Wechsel zum Login");
+        jButton1.addActionListener(this::login);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -121,8 +132,9 @@ public class RegisterFrame extends javax.swing.JFrame {
         jPasswordField2.setToolTipText("Wähle ein starkes Passwort");
 
         jButton2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jButton2.setText("Sign in");
+        jButton2.setText("Sign up");
         jButton2.setToolTipText("Zum Bestätigen drücken");
+        jButton2.addActionListener(this::signUp);
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel8.setText("schwach");
@@ -235,5 +247,82 @@ public class RegisterFrame extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
+    }
+
+    /**
+     * Method signUp.
+     *
+     * <p>
+     *     Used by JButton, handles sign up process.
+     * </p>
+     * @param e ActionEvent of JButton.
+     */
+
+    private void signUp(ActionEvent e) {
+        if (e.getSource() != jButton2) {
+            return;
+        }
+
+        // check if username is given by the client
+        if (username.getText().isEmpty()) {
+            username.setText("Benutzername angeben.");
+            return;
+        }
+
+        // check if username is already used
+        List<User> users = frontendController.getLoginControllerImplementation().select();
+        for (User user : users) {
+            if (user.getUsername().equals(username.getText())) {
+                username.setText("Der Benutzer ist bereits vergeben.");
+                return;
+            }
+        }
+
+        // check if password is given by the client
+        if (Arrays.equals(jPasswordField2.getPassword(), new char[]{}) || Arrays.equals(jPasswordField3.getPassword(), new char[]{})) {
+            username.setText("Bitte Passwort eingeben.");
+            return;
+        }
+
+        // check if password matches in both fields
+        if (!Arrays.equals(jPasswordField2.getPassword(), jPasswordField3.getPassword())) {
+            username.setText("Passwörter sind nicht gleich.");
+            jPasswordField2.setText("");
+            jPasswordField3.setText("");
+            return;
+        }
+
+        boolean success = frontendController.getLoginControllerImplementation().create(new User(
+                username.getText(),
+                jTextField1.getText(),
+                new String(jPasswordField2.getPassword())
+        ));
+        jPasswordField2.setText("");
+        jPasswordField3.setText("");
+
+        if (success) {
+            setVisible(false);
+            new NewJFrame(frontendController).setVisible(true);
+        }
+    }
+
+    /**
+     * Method login.
+     *
+     * <p>
+     *     Changes current window with LoginFrame.
+     * </p>
+     * @param e ActionEvent of JButton.
+     */
+
+    private void login(ActionEvent e) {
+        if (e.getSource() != jButton1) {
+            return;
+        }
+        setVisible(false);
+        loginFrame.setVisible(true);
+    }
+    public void setLoginFrame(LoginFrame loginFrame) {
+        this.loginFrame = loginFrame;
     }
 }

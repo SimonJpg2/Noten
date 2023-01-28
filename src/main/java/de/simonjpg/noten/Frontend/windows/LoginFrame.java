@@ -1,5 +1,12 @@
 package de.simonjpg.noten.Frontend.windows;
 
+import de.simonjpg.noten.Backend.Security.SHA256;
+import de.simonjpg.noten.Backend.User;
+import de.simonjpg.noten.Frontend.FrontendController;
+
+import java.awt.event.ActionEvent;
+import java.util.List;
+
 public class LoginFrame extends javax.swing.JFrame {
     private final javax.swing.JButton jButton1;
     private final javax.swing.JButton jButton2;
@@ -15,9 +22,13 @@ public class LoginFrame extends javax.swing.JFrame {
     private final javax.swing.JPanel jPanel1;
     private final javax.swing.JPasswordField jPasswordField1;
     private final javax.swing.JTextField username;
+    private final FrontendController frontendController;
+    private final RegisterFrame registerFrame;
 
 
-    public LoginFrame() {
+    public LoginFrame(FrontendController frontendController, RegisterFrame registerFrame) {
+        this.frontendController = frontendController;
+        this.registerFrame = registerFrame;
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -56,8 +67,9 @@ public class LoginFrame extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(41, 129, 186));
         jButton1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jButton1.setText("Sign in");
+        jButton1.setText("Sign up");
         jButton1.setToolTipText("Wechsel zum Registrieren");
+        jButton1.addActionListener(this::signUp);
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel7.setText("Du hast deinen Benutzernamen oder dein Passwort vergessen?");
@@ -129,6 +141,7 @@ public class LoginFrame extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jButton2.setText("Login");
         jButton2.setToolTipText("Zum Bestätigen drücken");
+        jButton2.addActionListener(this::login);
 
         jLayeredPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -194,5 +207,48 @@ public class LoginFrame extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
+    }
+
+    /**
+     * Method signUp.
+     *
+     * <p>
+     *     Used by JButton, changes current frame to RegisterFrame.
+     * </p>
+     * @param e ActionEvent of JButton.
+     */
+
+    private void signUp(ActionEvent e) {
+        if (e.getSource() != jButton1) {
+            return;
+        }
+        setVisible(false);
+        registerFrame.setVisible(true);
+    }
+
+    /**
+     * Method login.
+     *
+     * <p>
+     *     Used by JButton, handles login process.
+     * </p>
+     * @param e ActionEvent of JButton.
+     */
+
+    private void login(ActionEvent e) {
+        if (e.getSource() != jButton2) {
+            return;
+        }
+        List<User> users = frontendController.getLoginControllerImplementation().select();
+        for (User user : users) {
+            if (user.getUsername().equals(username.getText())) {
+                if (user.getPassword().equals(new SHA256().hash(new String(jPasswordField1.getPassword())))) {
+                    setVisible(false);
+                    new NewJFrame(frontendController).setVisible(true);
+                    return;
+                }
+            }
+        }
+        username.setText("Login fehlgeschlagen.");
     }
 }
