@@ -10,6 +10,8 @@ Eine Installationsanleitung einer MySQL Datenbank befindet sich weiter unten.
 
 Um die Anwendung zu starten, wird die main Methode in der Klasse de.simonjpg.noten.NotenApp.java ausgeführt.
 
+Nach dem Start öffnet sich ein Login/Registrierfenster und wird aufgefordert einen Account anzulegen.
+
 Anschließend öffnet sich ein Fenster mit zwei Tabellen. 
 
 In der ersten Tabelle sind die Fächer und in der zweiten die Noten zu sehen.
@@ -158,6 +160,28 @@ Nun werden die Tabellen erzeugt. Folgende Befehle sind auszuführen:
 
 `CREATE TABLE q4 (id int(3) AUTO_INCREMENT, fach varchar(255), note int(3), PRIMARY KEY (id));`
 
+Für die JUnit Tests werden folgende Queries ausgeführt:
+
+`CREATE DATABASE test;`
+
+`USE test;`
+
+`CREATE TABLE q1 (id int(3) AUTO_INCREMENT, fach varchar(255), note int(3), PRIMARY KEY (id));`
+
+`CREATE TABLE q2 (id int(3) AUTO_INCREMENT, fach varchar(255), note int(3), PRIMARY KEY (id));`
+
+`CREATE TABLE q3 (id int(3) AUTO_INCREMENT, fach varchar(255), note int(3), PRIMARY KEY (id));`
+
+`CREATE TABLE q4 (id int(3) AUTO_INCREMENT, fach varchar(255), note int(3), PRIMARY KEY (id));`
+
+Für den Login werden folgende Queries ausgeführt:
+
+`CREATE DATABASE login;`
+
+`USE login;`
+
+`CREATE TABLE users (id int(3) AUTO_INCREMENT, username varchar(255), email varchar(255), password varchar(255), PRIMARY KEY (id));`
+
 Bei Erfolg sind die Vorbereitungen abgeschlossen und die Anwendung kann gestartet werden.
 
 ****
@@ -179,3 +203,5 @@ Compiler source & target : 17
 [https://mvnrepository.com/artifact/mysql/mysql-connector-java](https://mvnrepository.com/artifact/mysql/mysql-connector-java) : version 8.0.31
 
 [https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api](https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api) : version 5.8.2
+
+[https://search.maven.org/artifact/javax.mail/javax.mail-api/1.6.2/jar](https://search.maven.org/artifact/javax.mail/javax.mail-api/1.6.2/jar) : version 1.6.2
