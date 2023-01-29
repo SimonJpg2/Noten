@@ -7,6 +7,18 @@ import de.simonjpg.noten.Frontend.FrontendController;
 import java.awt.event.ActionEvent;
 import java.util.List;
 
+/**
+ * Class LoginFrame
+ *
+ * <p>
+ *     JFrame to login.
+ *     Created with NetBeans IDE 15.
+ * </p>
+ * @version 1.0
+ * @since 28.1.2023
+ * @author SimonJpg
+ * @see javax.swing.JFrame
+ */
 public class LoginFrame extends javax.swing.JFrame {
     private final javax.swing.JButton jButton1;
     private final javax.swing.JButton jButton2;
@@ -253,6 +265,15 @@ public class LoginFrame extends javax.swing.JFrame {
         username.setText("Login fehlgeschlagen.");
     }
 
+    /**
+     * Method sendVerificationMail.
+     *
+     * <p>
+     *     This method opens the JFrame VerificationFrame.
+     * </p>
+     *
+     * @param e ActionEvent triggered by the JButton.
+     */
     private void sendVerificationMail(ActionEvent e) {
         if (e.getSource() != jButton3) {
             return;

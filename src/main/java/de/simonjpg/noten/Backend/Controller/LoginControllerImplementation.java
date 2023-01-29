@@ -65,9 +65,6 @@ public class LoginControllerImplementation implements LoginController {
         sha256 = new SHA256();
     }
 
-    // TODO add testcases
-    // TODO connect to frontend
-
     /**
      * Method select.
      *

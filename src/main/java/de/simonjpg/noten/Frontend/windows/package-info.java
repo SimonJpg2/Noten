@@ -2,8 +2,7 @@
  * This package is about sending actions such as executing queries from the client to the backend.
  *
  * <p>
- *     This package contains logic to send INSERT INTO and DELETE FROM statements
- *     to the backend based on client actions
+ *     This package contains JFrames to interact with the client.
  * </p>
  *
  * @since 5.1.2023

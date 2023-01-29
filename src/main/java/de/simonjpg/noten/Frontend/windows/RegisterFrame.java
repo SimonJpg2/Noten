@@ -7,6 +7,18 @@ import java.awt.event.ActionEvent;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Class RegisterFrame.
+ *
+ * <p>
+ *     JFrame to create new account.
+ *     Created with NetBeans IDE 15.
+ * </p>
+ * @since 28.1.2023
+ * @version 1.0
+ * @author SimonJpg
+ * @see javax.swing.JFrame
+ */
 public class RegisterFrame extends javax.swing.JFrame {
     private final javax.swing.JButton jButton1;
     private final javax.swing.JButton jButton2;
@@ -53,8 +65,6 @@ public class RegisterFrame extends javax.swing.JFrame {
     }
 
     // TODO add password strength logic
-    // TODO add email sender and receiver
-
     private void initComponents() {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 

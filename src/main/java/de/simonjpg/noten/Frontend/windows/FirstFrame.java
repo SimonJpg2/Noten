@@ -23,10 +23,10 @@ import static javax.swing.LayoutStyle.ComponentPlacement.*;
  * @author SimonJpg
  * @version 1.0
  * @since 30.12.2022
+ * @see javax.swing.JFrame
  */
 
 public class FirstFrame extends javax.swing.JFrame {
-
     private final FrontendController frontendController;
     private JButton jButton2;
     private JSpinner jSpinner1;
@@ -139,6 +139,15 @@ public class FirstFrame extends javax.swing.JFrame {
         pack();
     }
 
+    /**
+     * Method addEntry.
+     *
+     * <p>
+     *     This method adds a new Fach entry to the database.
+     * </p>
+     *
+     * @param e the event triggered by the JButton.
+     */
     private void addEntry(ActionEvent e) {
         if (e.getSource() != jButton2) {
             return;

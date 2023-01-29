@@ -4,11 +4,21 @@ import de.simonjpg.noten.Backend.Repository.User;
 import de.simonjpg.noten.Backend.Security.BadCharacters;
 import de.simonjpg.noten.Frontend.FrontendController;
 
-import javax.accessibility.Accessible;
 import java.awt.event.ActionEvent;
-import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Class ResetFrame.
+ *
+ * <p>
+ *     JFrame to reset password.
+ *     Created with NetBeans IDE 15.
+ * </p>
+ * @version 1.0
+ * @since 28.1.2023
+ * @author SimonJpg
+ * @see javax.swing.JFrame
+ */
 public class ResetFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -131,6 +141,15 @@ public class ResetFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
+    /**
+     * Method changePassword.
+     *
+     * <p>
+     *     Method to change password of the account from the client.
+     * </p>
+     * @param e ActionEvent triggered by JButton.
+     *
+     */
     private void changePassword(ActionEvent e) {
         if (e.getSource() != jButton1) {
             return;

@@ -12,7 +12,6 @@ package de.simonjpg.noten.Backend.Repository;
  */
 
 public class Fach {
-
     private int id;
     private String name;
     private int note;

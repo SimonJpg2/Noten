@@ -6,6 +6,17 @@ import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 import java.util.Random;
 
+/**
+ * Class MailController.
+ *
+ * <p>
+ *     This class is used to send email verification tokens if requested.
+ * </p>
+ *
+ * @version 1.0
+ * @since 28.1.2023
+ * @author SimonJpg
+ */
 public class MailController {
     private Session session;
     private String code = "";
@@ -16,6 +27,14 @@ public class MailController {
         init();
     }
 
+    /**
+     * Method init.
+     *
+     * <p>
+     *     Prepares session for email client.
+     * </p>
+     * @since 1.0
+     */
     private void init() {
         Properties properties = new Properties();
         properties.put("mail.smtp.auth", "true");
@@ -33,6 +52,14 @@ public class MailController {
         prepareRandomCode();
     }
 
+    /**
+     * Method prepareRandomCode.
+     *
+     * <p>
+     *     Generates random verification token.
+     * </p>
+     * @since 1.0
+     */
     private void prepareRandomCode() {
         Random random = new Random();
         for (int i = 0; i < 6; i++) {
@@ -40,6 +67,16 @@ public class MailController {
         }
     }
 
+    /**
+     * Method sendMail.
+     *
+     * <p>
+     *     Sends generated token to the client.
+     * </p>
+     *
+     * @param clientEmail {@link java.lang.String} the client email address.
+     * @return {@link java.lang.Boolean} if succeeded.
+     */
     public boolean sendMail(String clientEmail) {
         Message message = new MimeMessage(session);
         try {

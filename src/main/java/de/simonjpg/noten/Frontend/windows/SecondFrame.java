@@ -28,7 +28,6 @@ import static javax.swing.LayoutStyle.ComponentPlacement.*;
  */
 
 public class SecondFrame extends JFrame {
-
     private JButton jButton2;
     private JTextField jTextField1;
     private JComboBox<String> jComboBox1;
@@ -126,6 +125,14 @@ public class SecondFrame extends JFrame {
         pack();
     }
 
+    /**
+     * Method deleteOnClicked.
+     *
+     * <p>
+     *     Deletes existing Fach entry in the database.
+     * </p>
+     * @param e ActionEvent triggered by JButton.
+     */
     private void deleteOnClicked(ActionEvent e) {
         if (e.getSource() != jButton2) {
             return;
