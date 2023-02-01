@@ -64,7 +64,6 @@ public class RegisterFrame extends javax.swing.JFrame {
         initComponents();
     }
 
-    // TODO add password strength logic
     private void initComponents() {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -312,7 +311,7 @@ public class RegisterFrame extends javax.swing.JFrame {
 
         if (success) {
             setVisible(false);
-            new NewJFrame(frontendController).setVisible(true);
+            new DataFrame(frontendController).setVisible(true);
         }
     }
 

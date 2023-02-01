@@ -4,6 +4,8 @@ import de.simonjpg.noten.Backend.Repository.Fach;
 import de.simonjpg.noten.Frontend.FrontendController;
 
 import javax.swing.*;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.util.List;
 
@@ -21,20 +23,24 @@ import static javax.swing.LayoutStyle.ComponentPlacement.*;
  *     Created with NetBeans IDE 15.
  * </p>
  * @author SimonJpg
- * @version 1.0
+ * @version 2.0
  * @since 30.12.2022
  * @see javax.swing.JFrame
  */
 
 public class FirstFrame extends javax.swing.JFrame {
     private final FrontendController frontendController;
+    private final JTable jTable1;
+    private final DataFrame dataFrame;
     private JButton jButton2;
     private JSpinner jSpinner1;
     private JTextField jTextField1;
     private JComboBox<String> jComboBox1;
 
-    public FirstFrame(FrontendController frontendController) {
+    public FirstFrame(FrontendController frontendController, DataFrame dataFrame, JTable jTable1) {
         this.frontendController = frontendController;
+        this.dataFrame = dataFrame;
+        this.jTable1 = jTable1;
         initComponents();
     }
 
@@ -152,14 +158,21 @@ public class FirstFrame extends javax.swing.JFrame {
         if (e.getSource() != jButton2) {
             return;
         }
-
+        // get data to work with
         String name = jTextField1.getText();
         String table = (String) jComboBox1.getSelectedItem();
         int note = (Integer) jSpinner1.getValue();
 
+        // the column to update existing data
+        int column = table.equalsIgnoreCase("q1") ? 1 : table.equalsIgnoreCase("q2") ? 2 : table.equalsIgnoreCase("q3") ? 3 : 4;
+
+        // data from database
         List<Fach> fachList = frontendController.getBackendController().select(table);
+
+        // true if subject already exists in database.
         boolean found = false;
 
+        // update database.
         for (Fach fach : fachList) {
             if (fach.getName().equalsIgnoreCase(name)) {
                 frontendController.getBackendController().updateById(fach.getId(), new Fach(name, note), table);
@@ -167,8 +180,148 @@ public class FirstFrame extends javax.swing.JFrame {
             }
         }
 
+        List<Fach> fachListQ1 = frontendController.getBackendController().select("q1");
+        List<Fach> fachListQ2 = frontendController.getBackendController().select("q2");
+        List<Fach> fachListQ3 = frontendController.getBackendController().select("q3");
+        List<Fach> fachListQ4 = frontendController.getBackendController().select("q4");
+
+        dataFrame.sort(fachListQ1, 0, fachListQ1.size() - 1);
+        dataFrame.sort(fachListQ2, 0, fachListQ2.size() - 1);
+        dataFrame.sort(fachListQ3, 0, fachListQ3.size() - 1);
+        dataFrame.sort(fachListQ4, 0, fachListQ4.size() - 1);
+
+        if (found) {
+            // update column Q1
+            for (int i = 0; i < fachListQ1.size(); i++) {
+                if (fachListQ1.get(i).getName().equalsIgnoreCase(name)) {
+                    DefaultTableModel defaultTableModel = (DefaultTableModel) jTable1.getModel();
+
+                    // remove schnitt
+                    defaultTableModel.removeRow(defaultTableModel.getRowCount() - 1);
+
+                    // add fach
+                    defaultTableModel.setValueAt(note, i, column);
+
+                    // add schnitt
+                    defaultTableModel.addRow(new Object[]{
+                            "Schnitt",
+                            dataFrame.calcSchnitt("q1"),
+                            dataFrame.calcSchnitt("q2"),
+                            dataFrame.calcSchnitt("q3"),
+                            dataFrame.calcSchnitt("q4")
+                    });
+                }
+            }
+            // update column Q2
+            for (int i = 0; i < fachListQ2.size(); i++) {
+                if (fachListQ2.get(i).getName().equalsIgnoreCase(name)) {
+                    DefaultTableModel defaultTableModel = (DefaultTableModel) jTable1.getModel();
+
+                    // remove schnitt
+                    defaultTableModel.removeRow(defaultTableModel.getRowCount() - 1);
+
+                    // add fach
+                    defaultTableModel.setValueAt(note, i, column);
+
+                    // add schnitt
+                    defaultTableModel.addRow(new Object[]{
+                            "Schnitt",
+                            dataFrame.calcSchnitt("q1"),
+                            dataFrame.calcSchnitt("q2"),
+                            dataFrame.calcSchnitt("q3"),
+                            dataFrame.calcSchnitt("q4")
+                    });
+                }
+            }
+            // update column Q3
+            for (int i = 0; i < fachListQ3.size(); i++) {
+                if (fachListQ3.get(i).getName().equalsIgnoreCase(name)) {
+                    DefaultTableModel defaultTableModel = (DefaultTableModel) jTable1.getModel();
+
+                    // remove schnitt
+                    defaultTableModel.removeRow(defaultTableModel.getRowCount() - 1);
+
+                    // add fach
+                    defaultTableModel.setValueAt(note, i, column);
+
+                    // add schnitt
+                    defaultTableModel.addRow(new Object[]{
+                            "Schnitt",
+                            dataFrame.calcSchnitt("q1"),
+                            dataFrame.calcSchnitt("q2"),
+                            dataFrame.calcSchnitt("q3"),
+                            dataFrame.calcSchnitt("q4")
+                    });
+                }
+            }
+            // update column Q4
+            for (int i = 0; i < fachListQ4.size(); i++) {
+                if (fachListQ4.get(i).getName().equalsIgnoreCase(name)) {
+                    DefaultTableModel defaultTableModel = (DefaultTableModel) jTable1.getModel();
+
+                    // remove schnitt
+                    defaultTableModel.removeRow(defaultTableModel.getRowCount() - 1);
+
+                    // add fach
+                    defaultTableModel.setValueAt(note, i, column);
+
+                    // add schnitt
+                    defaultTableModel.addRow(new Object[]{
+                            "Schnitt",
+                            dataFrame.calcSchnitt("q1"),
+                            dataFrame.calcSchnitt("q2"),
+                            dataFrame.calcSchnitt("q3"),
+                            dataFrame.calcSchnitt("q4")
+                    });
+                }
+            }
+        }
+
+        // if subject doesn't exist in the database.
         if (!found) {
             frontendController.getBackendController().create(new Fach(name, note), table);
+
+            // fill DB to avoid IndexOutOfBoundsException.
+            if (column == 1) {
+                frontendController.getBackendController().create(new Fach(name, -1), "q2");
+                frontendController.getBackendController().create(new Fach(name, -1), "q3");
+                frontendController.getBackendController().create(new Fach(name, -1), "q4");
+            } else if (column == 2) {
+                frontendController.getBackendController().create(new Fach(name, -1), "q1");
+                frontendController.getBackendController().create(new Fach(name, -1), "q3");
+                frontendController.getBackendController().create(new Fach(name, -1), "q4");
+            } else if (column == 3) {
+                frontendController.getBackendController().create(new Fach(name, -1), "q1");
+                frontendController.getBackendController().create(new Fach(name, -1), "q2");
+                frontendController.getBackendController().create(new Fach(name, -1), "q4");
+            } else {
+                frontendController.getBackendController().create(new Fach(name, -1), "q1");
+                frontendController.getBackendController().create(new Fach(name, -1), "q2");
+                frontendController.getBackendController().create(new Fach(name, -1), "q3");
+            }
+            DefaultTableModel defaultTableModel = (DefaultTableModel) jTable1.getModel();
+
+            // remove table data
+            if (defaultTableModel.getRowCount() > 0) {
+                for (int i = defaultTableModel.getRowCount() - 1; i > -1; i--) {
+                    defaultTableModel.removeRow(i);
+                }
+            }
+
+            // fill JTable with data
+            dataFrame.appendSubject();
+
+            // add schnitt
+            defaultTableModel.addRow(new Object[] {
+                    "Schnitt",
+                    dataFrame.calcSchnitt("q1"),
+                    dataFrame.calcSchnitt("q2"),
+                    dataFrame.calcSchnitt("q3"),
+                    dataFrame.calcSchnitt("q4")
+            });
         }
+        // update JTable
+        AbstractTableModel abstractTableModel = (AbstractTableModel) jTable1.getModel();
+        abstractTableModel.fireTableDataChanged();
     }
 }

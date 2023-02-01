@@ -4,6 +4,8 @@ import de.simonjpg.noten.Backend.Repository.Fach;
 import de.simonjpg.noten.Frontend.FrontendController;
 
 import javax.swing.*;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.List;
@@ -22,7 +24,7 @@ import static javax.swing.LayoutStyle.ComponentPlacement.*;
  *     Created with NetBeans IDE 15.
  * </p>
  * @author SimonJpg
- * @version 1.0
+ * @version 2.0
  * @since 30.12.2022
  * @see javax.swing.JFrame
  */
@@ -32,9 +34,13 @@ public class SecondFrame extends JFrame {
     private JTextField jTextField1;
     private JComboBox<String> jComboBox1;
     private final FrontendController frontendController;
+    private final JTable jTable;
+    private final DataFrame dataFrame;
 
-    public SecondFrame(FrontendController frontendController) {
+    public SecondFrame(FrontendController frontendController, DataFrame dataFrame, JTable jTable) {
         this.frontendController = frontendController;
+        this.dataFrame = dataFrame;
+        this.jTable = jTable;
         initComponents();
     }
 
@@ -137,16 +143,66 @@ public class SecondFrame extends JFrame {
         if (e.getSource() != jButton2) {
             return;
         }
-
+        // the data to work with
         String name = jTextField1.getText();
-        String table = (String) jComboBox1.getSelectedItem();
 
-        List<Fach> fachList = frontendController.getBackendController().select(table);
+        List<Fach> fachListQ1 = frontendController.getBackendController().select("q1");
+        List<Fach> fachListQ2 = frontendController.getBackendController().select("q2");
+        List<Fach> fachListQ3 = frontendController.getBackendController().select("q3");
+        List<Fach> fachListQ4 = frontendController.getBackendController().select("q4");
 
-        for (Fach fach : fachList) {
+        dataFrame.sort(fachListQ1, 0, fachListQ1.size() - 1);
+        dataFrame.sort(fachListQ2, 0, fachListQ2.size() - 1);
+        dataFrame.sort(fachListQ3, 0, fachListQ3.size() - 1);
+        dataFrame.sort(fachListQ4, 0, fachListQ4.size() - 1);
+
+        // delete all data with the given name from the database.
+        for (Fach fach : fachListQ1) {
             if (fach.getName().equalsIgnoreCase(name)) {
-                frontendController.getBackendController().deleteById(fach.getId(), table);
+                frontendController.getBackendController().deleteById(fach.getId(), "q1");
             }
         }
+
+        for (Fach fach : fachListQ2) {
+            if (fach.getName().equalsIgnoreCase(name)) {
+                frontendController.getBackendController().deleteById(fach.getId(), "q2");
+            }
+        }
+
+        for (Fach fach : fachListQ3) {
+            if (fach.getName().equalsIgnoreCase(name)) {
+                frontendController.getBackendController().deleteById(fach.getId(), "q3");
+            }
+        }
+
+        for (Fach fach : fachListQ4) {
+            if (fach.getName().equalsIgnoreCase(name)) {
+                frontendController.getBackendController().deleteById(fach.getId(), "q4");
+            }
+        }
+        DefaultTableModel defaultTableModel = (DefaultTableModel) jTable.getModel();
+
+        // remove table data
+        if (defaultTableModel.getRowCount() > 0) {
+            for (int i = defaultTableModel.getRowCount() - 1; i > -1; i--) {
+                defaultTableModel.removeRow(i);
+            }
+        }
+
+        // add data
+        dataFrame.appendSubject();
+
+        // add schnitt
+        defaultTableModel.addRow(new Object[] {
+                "Schnitt",
+                dataFrame.calcSchnitt("q1"),
+                dataFrame.calcSchnitt("q2"),
+                dataFrame.calcSchnitt("q3"),
+                dataFrame.calcSchnitt("q4")
+        });
+
+        // update JTable
+        AbstractTableModel abstractTableModel = (AbstractTableModel) jTable.getModel();
+        abstractTableModel.fireTableDataChanged();
     }
 }

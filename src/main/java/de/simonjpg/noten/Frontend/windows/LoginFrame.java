@@ -4,6 +4,13 @@ import de.simonjpg.noten.Backend.Security.SHA256;
 import de.simonjpg.noten.Backend.Repository.User;
 import de.simonjpg.noten.Frontend.FrontendController;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.util.List;
 
@@ -17,23 +24,23 @@ import java.util.List;
  * @version 1.0
  * @since 28.1.2023
  * @author SimonJpg
- * @see javax.swing.JFrame
+ * @see JFrame
  */
-public class LoginFrame extends javax.swing.JFrame {
-    private final javax.swing.JButton jButton1;
-    private final javax.swing.JButton jButton2;
-    private final javax.swing.JButton jButton3;
-    private final javax.swing.JLabel jLabel1;
-    private final javax.swing.JLabel jLabel2;
-    private final javax.swing.JLabel jLabel3;
-    private final javax.swing.JLabel jLabel4;
-    private final javax.swing.JLabel jLabel5;
-    private final javax.swing.JLabel jLabel6;
-    private final javax.swing.JLabel jLabel7;
-    private final javax.swing.JLayeredPane jLayeredPane1;
-    private final javax.swing.JPanel jPanel1;
-    private final javax.swing.JPasswordField jPasswordField1;
-    private final javax.swing.JTextField username;
+public class LoginFrame extends JFrame {
+    private final JButton jButton1;
+    private final JButton jButton2;
+    private final JButton jButton3;
+    private final JLabel jLabel1;
+    private final JLabel jLabel2;
+    private final JLabel jLabel3;
+    private final JLabel jLabel4;
+    private final JLabel jLabel5;
+    private final JLabel jLabel6;
+    private final JLabel jLabel7;
+    private final JLayeredPane jLayeredPane1;
+    private final JPanel jPanel1;
+    private final JPasswordField jPasswordField1;
+    private final JTextField username;
     private final FrontendController frontendController;
     private final RegisterFrame registerFrame;
 
@@ -41,24 +48,22 @@ public class LoginFrame extends javax.swing.JFrame {
     public LoginFrame(FrontendController frontendController, RegisterFrame registerFrame) {
         this.frontendController = frontendController;
         this.registerFrame = registerFrame;
-        jLayeredPane1 = new javax.swing.JLayeredPane();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        username = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jButton2 = new javax.swing.JButton();
+        jLayeredPane1 = new JLayeredPane();
+        jPanel1 = new JPanel();
+        jLabel1 = new JLabel();
+        jLabel2 = new JLabel();
+        jLabel3 = new JLabel();
+        jButton1 = new JButton();
+        jLabel7 = new JLabel();
+        jButton3 = new JButton();
+        jLabel4 = new JLabel();
+        username = new JTextField();
+        jLabel5 = new JLabel();
+        jLabel6 = new JLabel();
+        jPasswordField1 = new JPasswordField();
+        jButton2 = new JButton();
         initComponents();
     }
-
-    // TODO add frame logic
 
     private void initComponents() {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -156,13 +161,13 @@ public class LoginFrame extends javax.swing.JFrame {
         jButton2.setToolTipText("Zum Bestätigen drücken");
         jButton2.addActionListener(this::login);
 
-        jLayeredPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(username, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jPasswordField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jPanel1, JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jLabel4, JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(username, JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jLabel5, JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jLabel6, JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jPasswordField1, JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jButton2, JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -257,7 +262,7 @@ public class LoginFrame extends javax.swing.JFrame {
             if (user.getUsername().equals(username.getText())) {
                 if (user.getPassword().equals(new SHA256().hash(new String(jPasswordField1.getPassword())))) {
                     setVisible(false);
-                    new NewJFrame(frontendController).setVisible(true);
+                    new DataFrame(frontendController).setVisible(true);
                     return;
                 }
             }
