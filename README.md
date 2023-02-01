@@ -14,16 +14,9 @@ Nach dem Start öffnet sich ein Login/Registrierfenster und wird aufgefordert ei
 
 Anschließend öffnet sich ein Fenster mit zwei Tabellen. 
 
-In der ersten Tabelle sind die Fächer und in der zweiten die Noten zu sehen.
+In der  Tabelle sind die Fächer und in der zweiten die Noten zu sehen.
 
 Sollen Fächer hinzugefügt oder bearbeitet werden, ist der grüne Button auf der linken Seite des frames zu drücken.
-
-Sollen Fächer gelöscht werden, ist der rote Button auf der linken Seite des frames zu drücken.
-
-_Um die Änderung auf dem Hauptfenster zu sehen, ist die Anwendung zu schließen und erneut zu starten._
-
-Zu beachten ist, dass die Anordnung der Fächer und die Anzahl der Fächer in den jeweiligen Halbjahren identisch sein 
-**muss**. Andernfalls kann es zu Fehlern im Backend führen.
 
 Die wichtigsten Klassen für die Datenbankverbindung sind als UML-Klassendiagramm 
 unter dem Ordner **"resources"** zu finden.

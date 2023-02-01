@@ -99,7 +99,6 @@ public class BackendController implements DatabaseController {
      * @param id an {@link java.lang.Integer} the id.
      * @return a {@link Fach} instance.
      */
-
     @Override
     public Fach selectById(int id) {
         try {
