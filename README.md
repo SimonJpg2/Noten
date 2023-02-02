@@ -13,10 +13,7 @@ Um die Anwendung zu starten, wird die main Methode in der Klasse de.simonjpg.not
 Nach dem Start öffnet sich ein Login/Registrierfenster und wird aufgefordert einen Account anzulegen.
 
 Anschließend öffnet sich ein Fenster mit zwei Tabellen. 
-
-In der  Tabelle sind die Fächer und in der zweiten die Noten zu sehen.
-
-Sollen Fächer hinzugefügt oder bearbeitet werden, ist der grüne Button auf der linken Seite des frames zu drücken.
+In dieser Tabelle sind anschließend die Fächer und Noten zu sehen.
 
 Die wichtigsten Klassen für die Datenbankverbindung sind als UML-Klassendiagramm 
 unter dem Ordner **"resources"** zu finden.
