@@ -4,8 +4,24 @@ import de.simonjpg.noten.Backend.Repository.User;
 import de.simonjpg.noten.Backend.Security.BadCharacters;
 import de.simonjpg.noten.Frontend.FrontendController;
 
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.util.List;
+
+import static java.lang.Short.*;
+import static javax.swing.GroupLayout.*;
+import static javax.swing.GroupLayout.Alignment.*;
+import static javax.swing.JLayeredPane.*;
+import static javax.swing.LayoutStyle.ComponentPlacement.*;
+import static javax.swing.WindowConstants.*;
 
 /**
  * Class ResetFrame.
@@ -17,18 +33,18 @@ import java.util.List;
  * @version 1.0
  * @since 28.1.2023
  * @author SimonJpg
- * @see javax.swing.JFrame
+ * @see JFrame
  */
-public class ResetFrame extends javax.swing.JFrame {
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
+public class ResetFrame extends JFrame {
+    private JButton jButton1;
+    private JLabel jLabel1;
+    private JLabel jLabel2;
+    private JLabel jLabel3;
+    private JLabel jLabel4;
+    private JLayeredPane jLayeredPane1;
+    private JPanel jPanel1;
+    private JPasswordField jPasswordField1;
+    private JPasswordField jPasswordField2;
     private final FrontendController frontendController;
 
     public ResetFrame(FrontendController frontendController) {
@@ -38,107 +54,108 @@ public class ResetFrame extends javax.swing.JFrame {
 
     private void initComponents() {
 
-        jLayeredPane1 = new javax.swing.JLayeredPane();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jPasswordField2 = new javax.swing.JPasswordField();
-        jLabel4 = new javax.swing.JLabel();
+        jLayeredPane1 = new JLayeredPane();
+        jPanel1 = new JPanel();
+        jLabel1 = new JLabel();
+        jLabel2 = new JLabel();
+        jLabel3 = new JLabel();
+        jButton1 = new JButton();
+        jPasswordField1 = new JPasswordField();
+        jPasswordField2 = new JPasswordField();
+        jLabel4 = new JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(41, 129, 186));
+        jPanel1.setBackground(new Color(41, 129, 186));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 100, Short.MAX_VALUE)
+                jPanel1Layout.createParallelGroup(LEADING)
+                        .addGap(0, 100, MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 0, Short.MAX_VALUE)
+                jPanel1Layout.createParallelGroup(LEADING)
+                        .addGap(0, 0, MAX_VALUE)
         );
 
-        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel1.setFont(new Font("Arial Black", 1, 18)); // NOI18N
         jLabel1.setText("Wiederherstellung");
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel2.setFont(new Font("Arial", 0, 14)); // NOI18N
         jLabel2.setText("Passwort");
 
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel3.setFont(new Font("Arial", 0, 14)); // NOI18N
         jLabel3.setText("Passwort wiederholen");
 
-        jButton1.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jButton1.setFont(new Font("Arial Black", 0, 12)); // NOI18N
         jButton1.setText("Change");
         jButton1.addActionListener(this::changePassword);
 
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel4.setFont(new Font("Arial", 1, 12)); // NOI18N
 
-        jLayeredPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jPasswordField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jPasswordField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jPanel1, DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jLabel1, DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jLabel2, DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jLabel3, DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jButton1, DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jPasswordField1, DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jPasswordField2, DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jLabel4, DEFAULT_LAYER);
 
-        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        GroupLayout jLayeredPane1Layout = new GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
-                jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                jLayeredPane1Layout.createParallelGroup(LEADING)
                         .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jPanel1, PREFERRED_SIZE, DEFAULT_SIZE, PREFERRED_SIZE)
                                 .addGap(69, 69, 69)
-                                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jLayeredPane1Layout.createParallelGroup(LEADING)
+                                        .addGroup(jLayeredPane1Layout.createParallelGroup(LEADING, false)
+                                                .addComponent(jLabel2, DEFAULT_SIZE, DEFAULT_SIZE, MAX_VALUE)
+                                                .addComponent(jLabel3, DEFAULT_SIZE, 280, MAX_VALUE)
+                                                .addComponent(jButton1, DEFAULT_SIZE, DEFAULT_SIZE, MAX_VALUE)
+                                                .addComponent(jLabel1, DEFAULT_SIZE, DEFAULT_SIZE, MAX_VALUE)
                                                 .addComponent(jPasswordField1)
                                                 .addComponent(jPasswordField2))
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 51, Short.MAX_VALUE))
+                                        .addComponent(jLabel4, PREFERRED_SIZE, 80, PREFERRED_SIZE))
+                                .addGap(0, 51, MAX_VALUE))
         );
         jLayeredPane1Layout.setVerticalGroup(
-                jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                jLayeredPane1Layout.createParallelGroup(LEADING)
+                        .addComponent(jPanel1, DEFAULT_SIZE, DEFAULT_SIZE, MAX_VALUE)
                         .addGroup(jLayeredPane1Layout.createSequentialGroup()
                                 .addGap(16, 16, 16)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel1, PREFERRED_SIZE, 35, PREFERRED_SIZE)
+                                .addPreferredGap(RELATED)
+                                .addComponent(jLabel4, PREFERRED_SIZE, 22, PREFERRED_SIZE)
+                                .addPreferredGap(RELATED)
+                                .addComponent(jLabel2, PREFERRED_SIZE, 25, PREFERRED_SIZE)
+                                .addPreferredGap(RELATED)
+                                .addComponent(jPasswordField1, PREFERRED_SIZE, 36, PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel3, PREFERRED_SIZE, 24, PREFERRED_SIZE)
+                                .addPreferredGap(RELATED)
+                                .addComponent(jPasswordField2, PREFERRED_SIZE, 35, PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1, DEFAULT_SIZE, DEFAULT_SIZE, MAX_VALUE)
                                 .addGap(12, 12, 12))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(LEADING)
                         .addComponent(jLayeredPane1)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(LEADING)
                         .addComponent(jLayeredPane1)
         );
 
         pack();
         setLocationRelativeTo(null);
+        setTitle("Passwort zurücksetzen");
     }
 
     /**

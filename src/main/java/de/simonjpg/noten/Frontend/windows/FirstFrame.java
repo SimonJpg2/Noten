@@ -25,10 +25,10 @@ import static javax.swing.LayoutStyle.ComponentPlacement.*;
  * @author SimonJpg
  * @version 2.0
  * @since 30.12.2022
- * @see javax.swing.JFrame
+ * @see JFrame
  */
 
-public class FirstFrame extends javax.swing.JFrame {
+public class FirstFrame extends JFrame {
     private final FrontendController frontendController;
     private final JTable jTable1;
     private final DataFrame dataFrame;
@@ -143,6 +143,8 @@ public class FirstFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
+        setTitle("Fach hinzufügen");
     }
 
     /**

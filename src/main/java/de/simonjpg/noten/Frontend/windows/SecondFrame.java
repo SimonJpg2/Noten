@@ -129,6 +129,8 @@ public class SecondFrame extends JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
+        setTitle("Fach löschen");
     }
 
     /**

@@ -12,9 +12,17 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.util.List;
 import java.util.Random;
+
+import static java.lang.Short.*;
+import static javax.swing.GroupLayout.*;
+import static javax.swing.GroupLayout.Alignment.*;
+import static javax.swing.LayoutStyle.ComponentPlacement.*;
+import static javax.swing.WindowConstants.*;
 
 /**
  * Class DataFrame
@@ -64,80 +72,80 @@ public class DataFrame extends JFrame {
         jScrollPane1 = new JScrollPane();
         jTable1 = new JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(41, 129, 186));
+        jPanel1.setBackground(new Color(41, 129, 186));
 
-        jLabel1.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jLabel1.setFont(new Font("Arial Black", 1, 18)); // NOI18N
         jLabel1.setText("Notenübersicht");
         jLabel1.setToolTipText("Verwaltung der Zeugnisnoten verschiedener Halbjahreszeugnisse.");
 
-        jButton1.setBackground(new java.awt.Color(41, 129, 186));
-        jButton1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jButton1.setBackground(new Color(41, 129, 186));
+        jButton1.setFont(new Font("Arial Black", 1, 14)); // NOI18N
         jButton1.setText("Add");
         jButton1.addActionListener(this::actionEventFirstButton);
 
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel3.setFont(new Font("Arial", 0, 14)); // NOI18N
         jLabel3.setText("Fach hinzufügen/bearbeiten");
 
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel4.setFont(new Font("Arial", 0, 14)); // NOI18N
         jLabel4.setText("Fach löschen");
 
-        jButton2.setBackground(new java.awt.Color(41, 129, 186));
-        jButton2.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        jButton2.setBackground(new Color(41, 129, 186));
+        jButton2.setFont(new Font("Arial Black", 0, 14)); // NOI18N
         jButton2.setText("Delete");
         jButton2.addActionListener(this::actionEventSecondButton);
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel2.setFont(new Font("Arial", 0, 14)); // NOI18N
         jLabel2.setText("Anwendung schließen");
 
-        jButton3.setBackground(new java.awt.Color(41, 129, 186));
-        jButton3.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jButton3.setBackground(new Color(41, 129, 186));
+        jButton3.setFont(new Font("Arial Black", 1, 14)); // NOI18N
         jButton3.setText("Close");
         jButton3.addActionListener(this::close);
 
         GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                jPanel1Layout.createParallelGroup(LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                        .addGroup(GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addContainerGap(45, Short.MAX_VALUE)
-                                                .addComponent(jLabel1, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(LEADING)
+                                        .addGroup(TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addContainerGap(45, MAX_VALUE)
+                                                .addComponent(jLabel1, PREFERRED_SIZE, 200, PREFERRED_SIZE))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGap(24, 24, 24)
-                                                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(jButton1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jLabel3, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                                        .addComponent(jLabel4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jButton2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jLabel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jButton3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                .addGap(0, 0, Short.MAX_VALUE)))
+                                                .addGroup(jPanel1Layout.createParallelGroup(LEADING, false)
+                                                        .addComponent(jButton1, DEFAULT_SIZE, DEFAULT_SIZE, MAX_VALUE)
+                                                        .addComponent(jLabel3, DEFAULT_SIZE, 200, MAX_VALUE)
+                                                        .addComponent(jLabel4, DEFAULT_SIZE, DEFAULT_SIZE, MAX_VALUE)
+                                                        .addComponent(jButton2, DEFAULT_SIZE, DEFAULT_SIZE, MAX_VALUE)
+                                                        .addComponent(jLabel2, DEFAULT_SIZE, DEFAULT_SIZE, MAX_VALUE)
+                                                        .addComponent(jButton3, DEFAULT_SIZE, DEFAULT_SIZE, MAX_VALUE))
+                                                .addGap(0, 0, MAX_VALUE)))
                                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                jPanel1Layout.createParallelGroup(LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jLabel1, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel1, PREFERRED_SIZE, 25, PREFERRED_SIZE)
                                 .addGap(85, 85, 85)
-                                .addComponent(jLabel3, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel3, PREFERRED_SIZE, 25, PREFERRED_SIZE)
+                                .addPreferredGap(RELATED)
                                 .addComponent(jButton1)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel4, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton2, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel4, PREFERRED_SIZE, 25, PREFERRED_SIZE)
+                                .addPreferredGap(UNRELATED)
+                                .addComponent(jButton2, PREFERRED_SIZE, 31, PREFERRED_SIZE)
+                                .addPreferredGap(RELATED, DEFAULT_SIZE, MAX_VALUE)
+                                .addComponent(jLabel2, PREFERRED_SIZE, 25, PREFERRED_SIZE)
+                                .addPreferredGap(UNRELATED)
                                 .addComponent(jButton3)
                                 .addGap(26, 26, 26))
         );
 
-        jTable1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTable1.setFont(new Font("Arial", 0, 14)); // NOI18N
         jTable1.setModel(new DefaultTableModel(
                 new Object [][] {
                 },
@@ -159,35 +167,36 @@ public class DataFrame extends JFrame {
         GroupLayout jLayeredPane1Layout = new GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
-                jLayeredPane1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                jLayeredPane1Layout.createParallelGroup(LEADING)
                         .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                                .addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jPanel1, PREFERRED_SIZE, DEFAULT_SIZE, PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 744, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, DEFAULT_SIZE, 744, MAX_VALUE)
                                 .addContainerGap())
         );
         jLayeredPane1Layout.setVerticalGroup(
-                jLayeredPane1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                jLayeredPane1Layout.createParallelGroup(LEADING)
+                        .addComponent(jPanel1, DEFAULT_SIZE, DEFAULT_SIZE, MAX_VALUE)
                         .addGroup(jLayeredPane1Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, DEFAULT_SIZE, 438, MAX_VALUE)
                                 .addContainerGap())
         );
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(LEADING)
                         .addComponent(jLayeredPane1)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addComponent(jLayeredPane1, GroupLayout.Alignment.TRAILING)
+                layout.createParallelGroup(LEADING)
+                        .addComponent(jLayeredPane1, TRAILING)
         );
 
         pack();
         setLocationRelativeTo(null);
+        setTitle("Notenübersicht");
     }
 
     public String calcSchnitt(String halbjahr) {
