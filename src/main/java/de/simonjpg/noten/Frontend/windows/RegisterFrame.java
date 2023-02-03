@@ -3,17 +3,9 @@ package de.simonjpg.noten.Frontend.windows;
 import de.simonjpg.noten.Backend.Repository.User;
 import de.simonjpg.noten.Frontend.FrontendController;
 
-import javax.swing.GroupLayout;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.WindowConstants;
-import java.awt.Color;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.Arrays;
 import java.util.List;
@@ -22,7 +14,6 @@ import static java.lang.Short.*;
 import static javax.swing.GroupLayout.*;
 import static javax.swing.GroupLayout.Alignment.*;
 import static javax.swing.JLayeredPane.*;
-import static javax.swing.WindowConstants.*;
 
 /**
  * Class RegisterFrame.
