@@ -25,9 +25,9 @@ import static javax.swing.JLayeredPane.*;
  * @since 28.1.2023
  * @version 1.0
  * @author SimonJpg
- * @see javax.swing.JFrame
+ * @see JFrame
  */
-public class RegisterFrame extends javax.swing.JFrame {
+public class RegisterFrame extends JFrame {
     private final JButton jButton1;
     private final JButton jButton2;
     private final JLabel jLabel1;
