@@ -1,5 +1,6 @@
 package de.simonjpg.noten.Frontend.windows;
 
+import de.simonjpg.noten.Backend.Images.ImageHandler;
 import de.simonjpg.noten.Backend.Repository.User;
 import de.simonjpg.noten.Frontend.FrontendController;
 
@@ -10,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.util.Arrays;
 import java.util.List;
 
+import static java.awt.Font.*;
 import static java.lang.Short.*;
 import static javax.swing.GroupLayout.*;
 import static javax.swing.GroupLayout.Alignment.*;
@@ -72,25 +74,34 @@ public class RegisterFrame extends JFrame {
         initComponents();
     }
 
+    /**
+     * Method initComponents.
+     *
+     * <p>
+     *     Initializes swing and awt components.
+     * </p>
+     */
+
     private void initComponents() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setIconImage(new ImageHandler().getImageFromResource("FrameImageIcon.png"));
 
         jLayeredPane1.setBackground(new Color(41, 129, 186));
 
         jPanel1.setBackground(new Color(41, 129, 186));
 
-        jLabel1.setFont(new Font("Arial Black", 1, 18)); // NOI18N
+        jLabel1.setFont(new Font("Arial Black", BOLD, 18)); // NOI18N
         jLabel1.setText("Login Notenübersicht");
 
-        jLabel2.setFont(new Font("Arial", 0, 14)); // NOI18N
+        jLabel2.setFont(new Font("Arial", PLAIN, 14)); // NOI18N
         jLabel2.setText("Du hast bereits einen Account?");
         jLabel2.setToolTipText("Du benötigst einen Account, um das Programm zu verwenden");
 
-        jLabel3.setFont(new Font("Arial", 0, 12)); // NOI18N
+        jLabel3.setFont(new Font("Arial", PLAIN, 12)); // NOI18N
         jLabel3.setText("Jetzt anmelden");
 
         jButton1.setBackground(new Color(41, 129, 186));
-        jButton1.setFont(new Font("Arial Black", 1, 14)); // NOI18N
+        jButton1.setFont(new Font("Arial Black", BOLD, 14)); // NOI18N
         jButton1.setText("Login");
         jButton1.setToolTipText("Wechsel zum Login");
         jButton1.addActionListener(this::login);
@@ -131,40 +142,40 @@ public class RegisterFrame extends JFrame {
                                 .addContainerGap(179, MAX_VALUE))
         );
 
-        jLabel4.setFont(new Font("Arial Black", 1, 24)); // NOI18N
+        jLabel4.setFont(new Font("Arial Black", BOLD, 24)); // NOI18N
         jLabel4.setText("Registrieren");
 
-        username.setFont(new Font("Arial", 0, 14)); // NOI18N
+        username.setFont(new Font("Arial", PLAIN, 14)); // NOI18N
         username.setToolTipText("Benutzername für deinen Account");
 
-        jLabel5.setFont(new Font("Arial", 0, 14)); // NOI18N
+        jLabel5.setFont(new Font("Arial", PLAIN, 14)); // NOI18N
         jLabel5.setText("Benutzername");
 
-        jLabel6.setFont(new Font("Arial", 0, 14)); // NOI18N
+        jLabel6.setFont(new Font("Arial", PLAIN, 14)); // NOI18N
         jLabel6.setText("Email adresse");
 
-        jLabel7.setFont(new Font("Arial", 0, 14)); // NOI18N
+        jLabel7.setFont(new Font("Arial", PLAIN, 14)); // NOI18N
         jLabel7.setText("Passwort");
 
         jPasswordField2.setToolTipText("Wähle ein starkes Passwort");
 
-        jButton2.setFont(new Font("Arial Black", 1, 18)); // NOI18N
+        jButton2.setFont(new Font("Arial Black", BOLD, 18)); // NOI18N
         jButton2.setText("Sign up");
         jButton2.setToolTipText("Zum Bestätigen drücken");
         jButton2.addActionListener(this::signUp);
 
-        jLabel8.setFont(new Font("Arial", 0, 12)); // NOI18N
+        jLabel8.setFont(new Font("Arial", PLAIN, 12)); // NOI18N
         jLabel8.setText("schwach");
 
-        jLabel9.setFont(new Font("Arial", 0, 12)); // NOI18N
+        jLabel9.setFont(new Font("Arial", PLAIN, 12)); // NOI18N
         jLabel9.setText("schwach");
 
-        jLabel10.setFont(new Font("Arial", 0, 14)); // NOI18N
+        jLabel10.setFont(new Font("Arial", PLAIN, 14)); // NOI18N
         jLabel10.setText("Passwort wiederholen");
 
         jPasswordField3.setToolTipText("Wähle ein starkes Passwort");
 
-        jTextField1.setFont(new Font("Arial", 0, 14)); // NOI18N
+        jTextField1.setFont(new Font("Arial", PLAIN, 14)); // NOI18N
 
         jLayeredPane1.setLayer(jPanel1, DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabel4, DEFAULT_LAYER);

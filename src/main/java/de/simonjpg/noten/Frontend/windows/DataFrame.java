@@ -1,5 +1,6 @@
 package de.simonjpg.noten.Frontend.windows;
 
+import de.simonjpg.noten.Backend.Images.ImageHandler;
 import de.simonjpg.noten.Backend.Repository.Fach;
 import de.simonjpg.noten.Frontend.FrontendController;
 
@@ -18,11 +19,11 @@ import java.awt.event.ActionEvent;
 import java.util.List;
 import java.util.Random;
 
+import static java.awt.Font.*;
 import static java.lang.Short.*;
 import static javax.swing.GroupLayout.*;
 import static javax.swing.GroupLayout.Alignment.*;
 import static javax.swing.LayoutStyle.ComponentPlacement.*;
-import static javax.swing.WindowConstants.*;
 
 /**
  * Class DataFrame
@@ -41,13 +42,6 @@ public class DataFrame extends JFrame {
     private JButton jButton1;
     private JButton jButton2;
     private JButton jButton3;
-    private JLabel jLabel1;
-    private JLabel jLabel2;
-    private JLabel jLabel3;
-    private JLabel jLabel4;
-    private JLayeredPane jLayeredPane1;
-    private JPanel jPanel1;
-    private JScrollPane jScrollPane1;
     private JTable jTable1;
     private DefaultTableModel tableModel;
     private final FrontendController frontendController;
@@ -59,48 +53,57 @@ public class DataFrame extends JFrame {
         tableModel.addRow(new Object[] {"Schnitt", calcSchnitt("q1"), calcSchnitt("q2"), calcSchnitt("q3"), calcSchnitt("q4")});
     }
 
+    /**
+     * Method initComponents.
+     *
+     * <p>
+     *     Initializes swing and awt components.
+     * </p>
+     */
+
     private void initComponents() {
-        jLayeredPane1 = new JLayeredPane();
-        jPanel1 = new JPanel();
-        jLabel1 = new JLabel();
+        JLayeredPane jLayeredPane1 = new JLayeredPane();
+        JPanel jPanel1 = new JPanel();
+        JLabel jLabel1 = new JLabel();
         jButton1 = new JButton();
-        jLabel3 = new JLabel();
-        jLabel4 = new JLabel();
+        JLabel jLabel3 = new JLabel();
+        JLabel jLabel4 = new JLabel();
         jButton2 = new JButton();
-        jLabel2 = new JLabel();
+        JLabel jLabel2 = new JLabel();
         jButton3 = new JButton();
-        jScrollPane1 = new JScrollPane();
+        JScrollPane jScrollPane1 = new JScrollPane();
         jTable1 = new JTable();
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setIconImage(new ImageHandler().getImageFromResource("FrameImageIcon.png"));
 
         jPanel1.setBackground(new Color(41, 129, 186));
 
-        jLabel1.setFont(new Font("Arial Black", 1, 18)); // NOI18N
+        jLabel1.setFont(new Font("Arial Black", BOLD, 18)); // NOI18N
         jLabel1.setText("Notenübersicht");
         jLabel1.setToolTipText("Verwaltung der Zeugnisnoten verschiedener Halbjahreszeugnisse.");
 
         jButton1.setBackground(new Color(41, 129, 186));
-        jButton1.setFont(new Font("Arial Black", 1, 14)); // NOI18N
+        jButton1.setFont(new Font("Arial Black", BOLD, 14)); // NOI18N
         jButton1.setText("Add");
         jButton1.addActionListener(this::actionEventFirstButton);
 
-        jLabel3.setFont(new Font("Arial", 0, 14)); // NOI18N
+        jLabel3.setFont(new Font("Arial", PLAIN, 14)); // NOI18N
         jLabel3.setText("Fach hinzufügen/bearbeiten");
 
-        jLabel4.setFont(new Font("Arial", 0, 14)); // NOI18N
+        jLabel4.setFont(new Font("Arial", PLAIN, 14)); // NOI18N
         jLabel4.setText("Fach löschen");
 
         jButton2.setBackground(new Color(41, 129, 186));
-        jButton2.setFont(new Font("Arial Black", 0, 14)); // NOI18N
+        jButton2.setFont(new Font("Arial Black", PLAIN, 14)); // NOI18N
         jButton2.setText("Delete");
         jButton2.addActionListener(this::actionEventSecondButton);
 
-        jLabel2.setFont(new Font("Arial", 0, 14)); // NOI18N
+        jLabel2.setFont(new Font("Arial", PLAIN, 14)); // NOI18N
         jLabel2.setText("Anwendung schließen");
 
         jButton3.setBackground(new Color(41, 129, 186));
-        jButton3.setFont(new Font("Arial Black", 1, 14)); // NOI18N
+        jButton3.setFont(new Font("Arial Black", BOLD, 14)); // NOI18N
         jButton3.setText("Close");
         jButton3.addActionListener(this::close);
 
@@ -145,7 +148,7 @@ public class DataFrame extends JFrame {
                                 .addGap(26, 26, 26))
         );
 
-        jTable1.setFont(new Font("Arial", 0, 14)); // NOI18N
+        jTable1.setFont(new Font("Arial", PLAIN, 14)); // NOI18N
         jTable1.setModel(new DefaultTableModel(
                 new Object [][] {
                 },

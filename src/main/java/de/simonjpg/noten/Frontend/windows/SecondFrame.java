@@ -1,5 +1,6 @@
 package de.simonjpg.noten.Frontend.windows;
 
+import de.simonjpg.noten.Backend.Images.ImageHandler;
 import de.simonjpg.noten.Backend.Repository.Fach;
 import de.simonjpg.noten.Frontend.FrontendController;
 
@@ -32,7 +33,6 @@ import static javax.swing.LayoutStyle.ComponentPlacement.*;
 public class SecondFrame extends JFrame {
     private JButton jButton2;
     private JTextField jTextField1;
-    private JComboBox<String> jComboBox1;
     private final FrontendController frontendController;
     private final JTable jTable;
     private final DataFrame dataFrame;
@@ -44,16 +44,24 @@ public class SecondFrame extends JFrame {
         initComponents();
     }
 
-    private void initComponents() {
+    /**
+     * Method initComponents.
+     *
+     * <p>
+     *     Initializes swing and awt components.
+     * </p>
+     */
 
+    private void initComponents() {
         JPanel jPanel1 = new JPanel();
         JLabel jLabel1 = new JLabel();
         jTextField1 = new JTextField();
         JButton jButton1 = new JButton();
         jButton2 = new JButton();
-        jComboBox1 = new JComboBox<>();
+        JComboBox<String> jComboBox1 = new JComboBox<>();
 
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setIconImage(new ImageHandler().getImageFromResource("FrameImageIcon.png"));
         setBackground(new Color(43, 43, 43));
         setResizable(false);
 

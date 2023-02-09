@@ -1,11 +1,11 @@
 package de.simonjpg.noten.Frontend.windows;
 
+import de.simonjpg.noten.Backend.Images.ImageHandler;
 import de.simonjpg.noten.Backend.Security.SHA256;
 import de.simonjpg.noten.Backend.Repository.User;
 import de.simonjpg.noten.Frontend.FrontendController;
 
 import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -18,10 +18,12 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.util.List;
 
+import static java.awt.Font.*;
 import static java.lang.Short.*;
 import static javax.swing.GroupLayout.*;
 import static javax.swing.GroupLayout.Alignment.*;
 import static javax.swing.JLayeredPane.*;
+import static javax.swing.WindowConstants.*;
 
 /**
  * Class LoginFrame
@@ -74,34 +76,43 @@ public class LoginFrame extends JFrame {
         initComponents();
     }
 
+    /**
+     * Method initComponents.
+     *
+     * <p>
+     *     Initializes swing and awt components.
+     * </p>
+     */
+
     private void initComponents() {
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setIconImage(new ImageHandler().getImageFromResource("FrameImageIcon.png"));
 
         jLayeredPane1.setBackground(new Color(41, 129, 186));
 
         jPanel1.setBackground(new Color(41, 129, 186));
 
-        jLabel1.setFont(new Font("Arial Black", 1, 18)); // NOI18N
+        jLabel1.setFont(new Font("Arial Black", BOLD, 18)); // NOI18N
         jLabel1.setText("Sign in Notenübersicht");
 
-        jLabel2.setFont(new Font("Arial", 0, 14)); // NOI18N
+        jLabel2.setFont(new Font("Arial", PLAIN, 14)); // NOI18N
         jLabel2.setText("Du hast noch keinen Account?");
         jLabel2.setToolTipText("Du brauchst einen Account, um das Programm zu benutzen");
 
-        jLabel3.setFont(new Font("Arial", 0, 12)); // NOI18N
+        jLabel3.setFont(new Font("Arial", PLAIN, 12)); // NOI18N
         jLabel3.setText("Jetzt registrieren");
 
         jButton1.setBackground(new Color(41, 129, 186));
-        jButton1.setFont(new Font("Arial Black", 1, 14)); // NOI18N
+        jButton1.setFont(new Font("Arial Black", BOLD, 14)); // NOI18N
         jButton1.setText("Sign up");
         jButton1.setToolTipText("Wechsel zum Registrieren");
         jButton1.addActionListener(this::signUp);
 
-        jLabel7.setFont(new Font("Arial", 0, 12)); // NOI18N
+        jLabel7.setFont(new Font("Arial", PLAIN, 12)); // NOI18N
         jLabel7.setText("Du hast deinen Benutzernamen oder dein Passwort vergessen?");
 
         jButton3.setBackground(new Color(41, 129, 186));
-        jButton3.setFont(new Font("Arial", 0, 12)); // NOI18N
+        jButton3.setFont(new Font("Arial", PLAIN, 12)); // NOI18N
         jButton3.setText("Send Email");
         jButton3.addActionListener(this::sendVerificationMail);
 
@@ -151,21 +162,21 @@ public class LoginFrame extends JFrame {
                                 .addContainerGap(62, MAX_VALUE))
         );
 
-        jLabel4.setFont(new Font("Arial Black", 1, 24)); // NOI18N
+        jLabel4.setFont(new Font("Arial Black", BOLD, 24)); // NOI18N
         jLabel4.setText("Anmelden");
 
-        username.setFont(new Font("Arial", 0, 14)); // NOI18N
+        username.setFont(new Font("Arial", PLAIN, 14)); // NOI18N
         username.setToolTipText("Dein Benutzername");
 
-        jLabel5.setFont(new Font("Arial", 0, 14)); // NOI18N
+        jLabel5.setFont(new Font("Arial", PLAIN, 14)); // NOI18N
         jLabel5.setText("Benutzername");
 
-        jLabel6.setFont(new Font("Arial", 0, 14)); // NOI18N
+        jLabel6.setFont(new Font("Arial", PLAIN, 14)); // NOI18N
         jLabel6.setText("Passwort");
 
         jPasswordField1.setToolTipText("Dein Passwort");
 
-        jButton2.setFont(new Font("Arial Black", 1, 18)); // NOI18N
+        jButton2.setFont(new Font("Arial Black", BOLD, 18)); // NOI18N
         jButton2.setText("Login");
         jButton2.setToolTipText("Zum Bestätigen drücken");
         jButton2.addActionListener(this::login);

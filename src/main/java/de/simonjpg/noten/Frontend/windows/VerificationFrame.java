@@ -1,6 +1,7 @@
 package de.simonjpg.noten.Frontend.windows;
 
 import de.simonjpg.noten.Backend.Controller.MailController;
+import de.simonjpg.noten.Backend.Images.ImageHandler;
 import de.simonjpg.noten.Backend.Repository.User;
 import de.simonjpg.noten.Backend.Security.BadCharacters;
 import de.simonjpg.noten.Frontend.FrontendController;
@@ -17,12 +18,12 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.util.List;
 
+import static java.awt.Font.*;
 import static java.lang.Short.*;
 import static javax.swing.GroupLayout.*;
 import static javax.swing.GroupLayout.Alignment.*;
 import static javax.swing.JLayeredPane.*;
 import static javax.swing.LayoutStyle.ComponentPlacement.*;
-import static javax.swing.WindowConstants.*;
 
 /**
  * Class VerificationFrame.
@@ -39,11 +40,6 @@ import static javax.swing.WindowConstants.*;
 public class VerificationFrame extends JFrame {
     private JButton jButton1;
     private JButton jButton2;
-    private JLabel jLabel1;
-    private JLabel jLabel2;
-    private JLabel jLabel3;
-    private JLayeredPane jLayeredPane1;
-    private JPanel jPanel1;
     private JTextField jTextField1;
     private JTextField jTextField2;
     private final FrontendController frontendController;
@@ -54,18 +50,27 @@ public class VerificationFrame extends JFrame {
         initComponents();
     }
 
+    /**
+     * Method initComponents.
+     *
+     * <p>
+     *     Initializes swing and awt components.
+     * </p>
+     */
+
     private void initComponents() {
-        jLayeredPane1 = new JLayeredPane();
-        jPanel1 = new JPanel();
-        jLabel1 = new JLabel();
-        jLabel2 = new JLabel();
+        JLayeredPane jLayeredPane1 = new JLayeredPane();
+        JPanel jPanel1 = new JPanel();
+        JLabel jLabel1 = new JLabel();
+        JLabel jLabel2 = new JLabel();
         jTextField1 = new JTextField();
-        jLabel3 = new JLabel();
+        JLabel jLabel3 = new JLabel();
         jTextField2 = new JTextField();
         jButton1 = new JButton();
         jButton2 = new JButton();
 
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setIconImage(new ImageHandler().getImageFromResource("FrameImageIcon.png"));
 
         jPanel1.setBackground(new Color(41, 129, 186));
 
@@ -80,24 +85,24 @@ public class VerificationFrame extends JFrame {
                         .addGap(0, 0, MAX_VALUE)
         );
 
-        jLabel1.setFont(new Font("Arial Black", 1, 18)); // NOI18N
+        jLabel1.setFont(new Font("Arial Black", BOLD, 18)); // NOI18N
         jLabel1.setText("Verifizierung");
 
-        jLabel2.setFont(new Font("Arial", 0, 14)); // NOI18N
+        jLabel2.setFont(new Font("Arial", PLAIN, 14)); // NOI18N
         jLabel2.setText("E-Mail");
 
-        jTextField1.setFont(new Font("Arial", 0, 14)); // NOI18N
+        jTextField1.setFont(new Font("Arial", PLAIN, 14)); // NOI18N
 
-        jLabel3.setFont(new Font("Arial", 0, 14)); // NOI18N
+        jLabel3.setFont(new Font("Arial", PLAIN, 14)); // NOI18N
         jLabel3.setText("Verifizierungstoken");
 
-        jTextField2.setFont(new Font("Arial", 0, 14)); // NOI18N
+        jTextField2.setFont(new Font("Arial", PLAIN, 14)); // NOI18N
 
-        jButton1.setFont(new Font("Arial Black", 0, 12)); // NOI18N
+        jButton1.setFont(new Font("Arial Black", PLAIN, 12)); // NOI18N
         jButton1.setText("Send");
         jButton1.addActionListener(this::sendMail);
 
-        jButton2.setFont(new Font("Arial Black", 0, 12)); // NOI18N
+        jButton2.setFont(new Font("Arial Black", PLAIN, 12)); // NOI18N
         jButton2.setText("Submit");
         jButton2.addActionListener(this::verify);
 

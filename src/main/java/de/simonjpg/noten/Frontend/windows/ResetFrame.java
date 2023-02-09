@@ -1,5 +1,6 @@
 package de.simonjpg.noten.Frontend.windows;
 
+import de.simonjpg.noten.Backend.Images.ImageHandler;
 import de.simonjpg.noten.Backend.Repository.User;
 import de.simonjpg.noten.Backend.Security.BadCharacters;
 import de.simonjpg.noten.Frontend.FrontendController;
@@ -16,12 +17,12 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.util.List;
 
+import static java.awt.Font.*;
 import static java.lang.Short.*;
 import static javax.swing.GroupLayout.*;
 import static javax.swing.GroupLayout.Alignment.*;
 import static javax.swing.JLayeredPane.*;
 import static javax.swing.LayoutStyle.ComponentPlacement.*;
-import static javax.swing.WindowConstants.*;
 
 /**
  * Class ResetFrame.
@@ -37,12 +38,7 @@ import static javax.swing.WindowConstants.*;
  */
 public class ResetFrame extends JFrame {
     private JButton jButton1;
-    private JLabel jLabel1;
-    private JLabel jLabel2;
-    private JLabel jLabel3;
     private JLabel jLabel4;
-    private JLayeredPane jLayeredPane1;
-    private JPanel jPanel1;
     private JPasswordField jPasswordField1;
     private JPasswordField jPasswordField2;
     private final FrontendController frontendController;
@@ -52,19 +48,27 @@ public class ResetFrame extends JFrame {
         initComponents();
     }
 
-    private void initComponents() {
+    /**
+     * Method initComponents.
+     *
+     * <p>
+     *     Initializes swing and awt components.
+     * </p>
+     */
 
-        jLayeredPane1 = new JLayeredPane();
-        jPanel1 = new JPanel();
-        jLabel1 = new JLabel();
-        jLabel2 = new JLabel();
-        jLabel3 = new JLabel();
+    private void initComponents() {
+        JLayeredPane jLayeredPane1 = new JLayeredPane();
+        JPanel jPanel1 = new JPanel();
+        JLabel jLabel1 = new JLabel();
+        JLabel jLabel2 = new JLabel();
+        JLabel jLabel3 = new JLabel();
         jButton1 = new JButton();
         jPasswordField1 = new JPasswordField();
         jPasswordField2 = new JPasswordField();
         jLabel4 = new JLabel();
 
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setIconImage(new ImageHandler().getImageFromResource("FrameImageIcon.png"));
 
         jPanel1.setBackground(new Color(41, 129, 186));
 
@@ -79,20 +83,20 @@ public class ResetFrame extends JFrame {
                         .addGap(0, 0, MAX_VALUE)
         );
 
-        jLabel1.setFont(new Font("Arial Black", 1, 18)); // NOI18N
+        jLabel1.setFont(new Font("Arial Black", BOLD, 18)); // NOI18N
         jLabel1.setText("Wiederherstellung");
 
-        jLabel2.setFont(new Font("Arial", 0, 14)); // NOI18N
+        jLabel2.setFont(new Font("Arial", PLAIN, 14)); // NOI18N
         jLabel2.setText("Passwort");
 
-        jLabel3.setFont(new Font("Arial", 0, 14)); // NOI18N
+        jLabel3.setFont(new Font("Arial", PLAIN, 14)); // NOI18N
         jLabel3.setText("Passwort wiederholen");
 
-        jButton1.setFont(new Font("Arial Black", 0, 12)); // NOI18N
+        jButton1.setFont(new Font("Arial Black", PLAIN, 12)); // NOI18N
         jButton1.setText("Change");
         jButton1.addActionListener(this::changePassword);
 
-        jLabel4.setFont(new Font("Arial", 1, 12)); // NOI18N
+        jLabel4.setFont(new Font("Arial", BOLD, 12)); // NOI18N
 
         jLayeredPane1.setLayer(jPanel1, DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabel1, DEFAULT_LAYER);

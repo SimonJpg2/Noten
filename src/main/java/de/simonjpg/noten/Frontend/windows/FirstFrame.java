@@ -1,11 +1,13 @@
 package de.simonjpg.noten.Frontend.windows;
 
+import de.simonjpg.noten.Backend.Images.ImageHandler;
 import de.simonjpg.noten.Backend.Repository.Fach;
 import de.simonjpg.noten.Frontend.FrontendController;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.util.List;
 
@@ -44,6 +46,14 @@ public class FirstFrame extends JFrame {
         initComponents();
     }
 
+    /**
+     * Method initComponents.
+     *
+     * <p>
+     *     Initializes swing and awt components.
+     * </p>
+     */
+
     private void initComponents() {
 
         JPanel jPanel1 = new JPanel();
@@ -56,10 +66,11 @@ public class FirstFrame extends JFrame {
         jComboBox1 = new JComboBox<>();
 
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setBackground(new java.awt.Color(43, 43, 43));
+        setIconImage(new ImageHandler().getImageFromResource("FrameImageIcon.png"));
+        setBackground(new Color(43, 43, 43));
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(41, 129, 186));
+        jPanel1.setBackground(new Color(41, 129, 186));
 
         GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
