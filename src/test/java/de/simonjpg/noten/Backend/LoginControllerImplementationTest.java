@@ -7,12 +7,14 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class LoginControllerImplementationTest {
     private final LoginControllerImplementation loginController = new LoginControllerImplementation("jdbc:mysql://localhost:3306/test");
     private final SHA256 sha256 = new SHA256();
+    private static final UUID uuid = UUID.randomUUID();
 
     @Test
     void init() {
@@ -26,7 +28,8 @@ class LoginControllerImplementationTest {
         expected.add(new User(
                 "Max Mustermann",
                 "Muster@Email.de",
-                sha256.hash("SuperSecretPassword")
+                sha256.hash("SuperSecretPassword"),
+                sha256.hash(uuid.toString())
         ));
 
         // when
@@ -44,7 +47,9 @@ class LoginControllerImplementationTest {
         User expected = new User(
                 "Max Mustermann",
                 "Muster@Email.de",
-                sha256.hash("SuperSecretPassword"));
+                sha256.hash("SuperSecretPassword"),
+                uuid.toString()
+                );
 
         // when
         User actual = loginController.selectById(1);
@@ -58,21 +63,24 @@ class LoginControllerImplementationTest {
     @Test
     void create() {
         // given
-        User actual = new User("Max Mustermann", "Muster@Email.de", "SuperSecretPassword");
+        User actual = new User("Max Mustermann", "Muster@Email.de", "SuperSecretPassword", uuid.toString());
         User user1 = new User(
                 "Max Mustermann",
                 "'OR '1'='1",
-                "SuperSecretPassword"
+                "SuperSecretPassword",
+                uuid.toString()
         );
         User user2 = new User(
                 "Max Mustermann",
                 "Muster@Email.de",
-                "'OR '1'='1"
+                "'OR '1'='1",
+                uuid.toString()
         );
         User user3 = new User(
                 "'OR '1'='1",
                 "Muster@Email.de",
-                "SuperSecretPassword"
+                "SuperSecretPassword",
+                uuid.toString()
         );
         assertFalse(loginController.create(user1));
         assertFalse(loginController.create(user2));
