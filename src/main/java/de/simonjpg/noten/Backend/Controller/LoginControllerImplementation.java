@@ -89,7 +89,8 @@ public class LoginControllerImplementation implements LoginController {
                                 resultSet.getInt("id"),
                                 resultSet.getString("username"),
                                 resultSet.getString("email"),
-                                resultSet.getString("password")
+                                resultSet.getString("password"),
+                                resultSet.getString("uuid")
                         )
                 );
             }
@@ -126,7 +127,8 @@ public class LoginControllerImplementation implements LoginController {
                     resultSet.getInt("id"),
                     resultSet.getString("username"),
                     resultSet.getString("email"),
-                    resultSet.getString("password")
+                    resultSet.getString("password"),
+                    resultSet.getString("uuid")
             );
             resultSet.close();
             preparedStatement.close();
@@ -161,10 +163,11 @@ public class LoginControllerImplementation implements LoginController {
         }
 
         try {
-            preparedStatement = connection.prepareStatement("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
+            preparedStatement = connection.prepareStatement("INSERT INTO users (username, email, password, uuid) VALUES (?, ?, ?, ?)");
             preparedStatement.setString(1, user.getUsername());
             preparedStatement.setString(2, user.getEmail());
             preparedStatement.setString(3, sha256.hash(user.getPassword()));
+            preparedStatement.setString(4, sha256.hash(user.getUuid()));
             boolean success = preparedStatement.executeUpdate() > 0;
             preparedStatement.close();
             return success;

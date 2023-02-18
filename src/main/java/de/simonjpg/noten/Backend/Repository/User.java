@@ -1,5 +1,7 @@
 package de.simonjpg.noten.Backend.Repository;
 
+import java.util.UUID;
+
 /**
  * Class User.
  *
@@ -17,14 +19,30 @@ public class User {
     private String username;
     private String email;
     private String password;
+    private String uuid;
 
     public User() {
+    }
+
+    public User(String username, String email, String password, String uuid) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.uuid = uuid;
     }
 
     public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
+    }
+
+    public User(int id, String username, String email, String password, String uuid) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.uuid = uuid;
     }
 
     public User(int id, String username, String email, String password) {
@@ -48,5 +66,9 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getUuid() {
+        return uuid;
     }
 }

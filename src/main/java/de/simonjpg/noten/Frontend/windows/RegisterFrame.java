@@ -10,6 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 import static java.awt.Font.*;
 import static java.lang.Short.*;
@@ -324,7 +325,8 @@ public class RegisterFrame extends JFrame {
         boolean success = frontendController.getLoginControllerImplementation().create(new User(
                 username.getText(),
                 jTextField1.getText(),
-                new String(jPasswordField2.getPassword())
+                new String(jPasswordField2.getPassword()),
+                UUID.randomUUID().toString()
         ));
         jPasswordField2.setText("");
         jPasswordField3.setText("");
