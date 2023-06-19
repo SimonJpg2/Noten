@@ -1,4 +1,4 @@
-# Anwendung Noten
+<h1 align="center">Anwendung Noten</h1>
 
 Diese Anwendung wurde für die dynamische Verwaltung von erbrachten Leistungen der verschiedenen Halbjahre geschrieben.
 
@@ -17,6 +17,8 @@ In dieser Tabelle sind anschließend die Fächer und Noten zu sehen.
 
 Die wichtigsten Klassen für die Datenbankverbindung sind als UML-Klassendiagramm 
 unter dem Ordner **"resources"** zu finden.
+
+<h3 align="left">JFrame SignUp</h3>
 
 ****
 
