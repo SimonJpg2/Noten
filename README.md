@@ -19,6 +19,7 @@ Die wichtigsten Klassen für die Datenbankverbindung sind als UML-Klassendiagram
 unter dem Ordner **"resources"** zu finden.
 
 <h3 align="left">JFrame SignUp</h3>
+<p><img align="center" src="https://github.com/SimonJpg2/Noten/blob/master/src/main/resources/SignUp.PNG" /></p>
 
 ****
 
