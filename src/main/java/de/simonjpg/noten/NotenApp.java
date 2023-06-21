@@ -3,8 +3,6 @@ package de.simonjpg.noten;
 import de.simonjpg.noten.Backend.Controller.BackendController;
 import de.simonjpg.noten.Backend.Controller.LoginControllerImplementation;
 import de.simonjpg.noten.Frontend.FrontendController;
-import de.simonjpg.noten.Frontend.windows.LoginFrame;
-import de.simonjpg.noten.Frontend.windows.RegisterFrame;
 
 /**
  * Class NotenApp.
@@ -19,19 +17,8 @@ import de.simonjpg.noten.Frontend.windows.RegisterFrame;
  */
 
 public class NotenApp {
-
     public static void main(String[] args) {
-        // Controller
-        FrontendController frontendController = new FrontendController(
-                new BackendController(),
-                new LoginControllerImplementation());
-
-        // Frames
-        RegisterFrame registerFrame = new RegisterFrame(frontendController);
-        LoginFrame loginFrame = new LoginFrame(frontendController, registerFrame);
-
-        registerFrame.setLoginFrame(loginFrame);
-        registerFrame.setVisible(true);
-        loginFrame.setVisible(false);
+        // Initialize Frontend and Backend.
+        new FrontendController();
     }
 }
