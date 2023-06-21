@@ -1,4 +1,4 @@
-# Anwendung Noten
+<h1 align="center">Anwendung Noten</h1>
 
 Diese Anwendung wurde für die dynamische Verwaltung von erbrachten Leistungen der verschiedenen Halbjahre geschrieben.
 
@@ -18,6 +18,12 @@ In dieser Tabelle sind anschließend die Fächer und Noten zu sehen.
 Die wichtigsten Klassen für die Datenbankverbindung sind als UML-Klassendiagramm 
 unter dem Ordner **"resources"** zu finden.
 
+<h3 align="left">JFrame SignUp</h3>
+<p><img align="center" src="https://github.com/SimonJpg2/Noten/blob/master/src/main/resources/SignUp.PNG" /></p>
+
+<h3 align="left">JFrame SignIn</h3>
+<p><img align="center" src="https://github.com/SimonJpg2/Noten/blob/master/src/main/resources/SignIn.PNG" /></p>
+
 ****
 
 ## Inhaltsverzeichnis
@@ -30,6 +36,7 @@ unter dem Ordner **"resources"** zu finden.
 ****
 
 ## Leitfaden für die Installation unter Windows:
+<p><img align="center" src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" /></p>
 
 ### Schritt 1:
 
@@ -120,6 +127,7 @@ Sollten Fehler mit dem Senden der Verifizierungsmail unter Verwendung von gmail 
 ****
 
 ## Leitfaden für die Installation unter Linux:
+<p><img align="center" src="https://img.shields.io/badge/Debian-D70A53?style=for-the-badge&logo=debian&logoColor=white" /></p>
 
 ### Schritt 1:
 
