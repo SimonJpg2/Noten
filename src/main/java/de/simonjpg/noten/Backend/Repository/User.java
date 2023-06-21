@@ -1,6 +1,6 @@
 package de.simonjpg.noten.Backend.Repository;
 
-import java.util.UUID;
+//TODO: refactor uuid and constructors
 
 /**
  * Class User.

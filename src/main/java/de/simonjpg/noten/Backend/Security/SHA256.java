@@ -1,8 +1,9 @@
 package de.simonjpg.noten.Backend.Security;
 
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
+import static java.security.MessageDigest.getInstance;
 
 /**
  * Class SHA256.
@@ -28,14 +29,13 @@ public class SHA256 {
      * @return the hash as a String.
      * @throws java.lang.RuntimeException if algorithm not found.
      */
-
     public String hash(String plaintext) {
-        byte[] plaintextBytes = plaintext.getBytes(StandardCharsets.UTF_8);
+        byte[] plaintextBytes = plaintext.getBytes(UTF_8);
 
         try {
-            return new String(MessageDigest.getInstance("SHA-256").digest(plaintextBytes));
+            return new String(getInstance("SHA-256").digest(plaintextBytes));
         } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException("Encryption failed: " + e);
+            throw new RuntimeException("Encryption failed: " + e); //TODO: replace with custom exception
         }
     }
 }
