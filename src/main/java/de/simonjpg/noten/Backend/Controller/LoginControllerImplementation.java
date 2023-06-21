@@ -94,7 +94,6 @@ public class LoginControllerImplementation implements LoginController {
                         )
                 );
             }
-            resultSet.close();
             preparedStatement.close();
             return users;
         } catch (SQLException | NullPointerException e) {
@@ -130,7 +129,6 @@ public class LoginControllerImplementation implements LoginController {
                     resultSet.getString("password"),
                     resultSet.getString("uuid")
             );
-            resultSet.close();
             preparedStatement.close();
             return user;
         } catch (SQLException | NullPointerException e) {

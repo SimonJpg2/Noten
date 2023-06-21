@@ -78,11 +78,10 @@ public class BackendController implements DatabaseController {
                        resultSet.getInt("note")
                ));
             }
-            resultSet.close();
+            statement.close();
             return  fachList;
         } catch (SQLException | NullPointerException e) {
             System.err.println(e.getMessage());
-            preparedStatement = null;
             resultSet = null;
             return new ArrayList<>();
         }
@@ -115,12 +114,10 @@ public class BackendController implements DatabaseController {
             );
 
             preparedStatement.close();
-            resultSet.close();
             return fach;
         } catch (SQLException | NullPointerException e) {
             System.err.println(e.getMessage());
             preparedStatement = null;
-            resultSet = null;
             return new Fach();
         }
     }
